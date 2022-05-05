@@ -3157,6 +3157,7 @@ function Generate() {
     let seed = hashstr(document.getElementById("seed").value);
     let uniquefixed = document.getElementById("uniquefixed").checked;
     let fixed = {};
+    let pack;
     let pick;
 
 //THE WIZARDS FIXED PACK
@@ -3170,7 +3171,7 @@ for (let i = 0; i < parseInt(document.getElementById("TWF").value); i++) {
         }
         fixed[packind] = 1;
     }
-    let pack = TWFixedPacksNoSites[packind];
+    pack = TWFixedPacksNoSites[packind];
     for (let cardind = 0; cardind < pack.length; ++cardind) {
         publishCard(pack[cardind]+" (TW)",Preview,ListofCards);
     }
@@ -3187,7 +3188,7 @@ for (let i = 0; i < parseInt(document.getElementById("TWS").value); i++) {
         }
         fixed[packind] = 1;
     }
-    let pack = TWFixedPacksNoSites[packind];
+    pack = TWFixedPacksNoSites[packind].slice();
     // 110/121 U, but 8/9 is less
     [seed,pick] = chooseN(seed, TWUncommonSheetNoSites, 9);
     pack.push(...pick);
@@ -3207,7 +3208,7 @@ for (let i = 0; i < parseInt(document.getElementById("TWS").value); i++) {
 for (let i = 0; i < parseInt(document.getElementById("TWB").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Wizards Booster Pack "+(i+1)+"</b></h1>");
     [seed,pick] = chooseN(seed, TWUncommonSheetNoSites, 3);
-    let pack = pick;
+    pack = pick;
     [seed,pick] = chooseN(seed, TWRareSheetNoSites, 1);
     pack.push(...pick);
     // the below preserves the general commons per booster, and approximates
@@ -3227,7 +3228,7 @@ for (let i = 0; i < parseInt(document.getElementById("TWB").value); i++) {
 for (let i = 0; i < parseInt(document.getElementById("TDB").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Dragons Booster Pack "+(i+1)+"</b></h1>");
     [seed,pick] = chooseN(seed, TDUncommonSheetNoSites, 4);
-    let pack = pick;
+    pack = pick;
     [seed,pick] = chooseN(seed, TDRareSheetNoSites, 1);
     pack.push(...pick);
     [seed,pick] = chooseN(seed, TDCommonSheetNoSites, 10);
@@ -3242,7 +3243,7 @@ for (let i = 0; i < parseInt(document.getElementById("DMB").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>Dark Minions Booster Pack "+(i+1)+"</b></h1>");
     // 50/59 u2, 1/1 u3 means 103/121 uncommons, but still more than 3/4
     [seed,pick] = chooseN(seed, DMUncommonSheetNoSites, 4);
-    let pack = pick;
+    pack = pick;
     [seed,pick] = chooseN(seed, DMRareSheetNoSites, 1);
     pack.push(...pick);
     [seed,pick] = chooseN(seed, DMCommonSheetNoSites, 10);
@@ -3264,7 +3265,7 @@ for (let i = 0; i < parseInt(document.getElementById("LEF").value); i++) {
         }
         fixed[packind] = 1;
     }
-    let pack = LEFixedPacksNoSites[packind];
+    pack = LEFixedPacksNoSites[packind];
     for (let cardind = 0; cardind < pack.length; ++cardind) {
         publishCard(pack[cardind]+" (LE)",Preview,ListofCards);
     }
@@ -3281,7 +3282,7 @@ for (let i = 0; i < parseInt(document.getElementById("LES").value); i++) {
         }
         fixed[packind] = 1;
     }
-    let pack = LEFixedPacksNoSites[packind];
+    pack = LEFixedPacksNoSites[packind].slice();
     //# with sites removed, there are only about 70% of uncommons left
     [seed,pick] = chooseN(seed, LEUncommonSheetNoSites, 9);
     pack.push(...pick);
@@ -3299,7 +3300,7 @@ for (let i = 0; i < parseInt(document.getElementById("LEB").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Lidless Eye Booster Pack "+(i+1)+"</b></h1>");
     // with sites removes, there are only about 70% of uncommons left
     [seed,pick] = chooseN(seed, LEUncommonSheetNoSites, 3);
-    let pack = pick;
+    pack = pick;
     [seed,pick] = chooseN(seed, LERareSheetNoSites, 1);
     pack.push(...pick);
     [seed,pick] = chooseN(seed, LEBoosterCommonSheetNoSites, 10);
@@ -3315,7 +3316,7 @@ for (let i = 0; i < parseInt(document.getElementById("ASB").value); i++) {
     // 2/2 U1, 18/43 U2, 11/11 U3
     // (71/121) non-site uncommons is less than 3/4
     [seed,pick] = chooseN(seed, ASUncommonSheetNoSites, 3);
-    let pack = pick;
+    pack = pick;
     [seed,pick] = chooseN(seed, ASRareSheetNoSites, 2);
     pack.push(...pick);
     [seed,pick] = chooseN(seed, ASCommonSheetNoSites, 6);
@@ -3330,7 +3331,7 @@ for (let i = 0; i < parseInt(document.getElementById("WHB").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The White Hand Booster Pack "+(i+1)+"</b></h1>");
     // 16/19 C3, 15/16 C4 means 108/121 commons, but still more than 5/6
     [seed,pick] = chooseN(seed, WHUncommonSheetNoSites, 4);
-    let pack = pick;
+    pack = pick;
     [seed,pick] = chooseN(seed, WHRareSheetNoSites, 2);
     pack.push(...pick);
     [seed,pick] = chooseN(seed, WHCommonSheetNoSites, 6);
@@ -3344,7 +3345,7 @@ for (let i = 0; i < parseInt(document.getElementById("WHB").value); i++) {
 for (let i = 0; i < parseInt(document.getElementById("BAS").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Balrog 2-Box Set Pack "+(i+1)+"</b></h1>");
     [seed,pick] = chooseN(seed, BASheetCombinedNoSites, parseInt(document.getElementById("BAC").value));
-    let pack = pick;
+    pack = pick;
     for (let cardind = 0; cardind < pack.length; ++cardind) {
         publishCard(pack[cardind]+(pack[cardind][-1] != ")" ? " (BA)" : ""),Preview,ListofCards);
     }
