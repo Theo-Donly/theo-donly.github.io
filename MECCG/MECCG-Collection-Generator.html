@@ -2779,7 +2779,7 @@ var WHCommonSheet = [
 "Thrall of the Voice",
 ];
 
-var BASheetA = [
+var BOSheetA = [
     "Azog",
     "Bûthrakaur",
     "Crook-legged Orc",
@@ -2834,7 +2834,9 @@ var BASheetA = [
     "Unabated in Malice",
     "Ungoliant's Foul Issue",
     "Ungoliant's Progeny",
-    // cards from older sets
+];
+
+var BASheetA_reprints = [
     "Orc Veteran (LE)",
     "Bûrat (AS)",
     "Gorbag (LE)",
@@ -2895,7 +2897,7 @@ var BASheetA = [
     "The Way is Shut (DM)",
 ];
 
-var BASheetB = [
+var BOSheetB = [
     "Strider",
     "Bolg",
     "Crook-legged Orc",
@@ -2952,7 +2954,9 @@ var BASheetB = [
     "Imprisoned and Mocked",
     "Olog Warlords",
     "Press-gang",
-    // cards from earlier sets
+];
+
+var BASheetB_reprints = [
     "Old Troll (LE)",
     "Bûrat (AS)",
     "Tûma (AS)",
@@ -3092,7 +3096,7 @@ function removeSites(cardlist, setflag) {
     let ret = [];
     for (let cardind = 0; cardind < cardlist.length; ++cardind) {
         let cardwithflag = cardlist[cardind];
-        if (cardwithflag[-1] != ")") {
+        if (cardwithflag[cardwithflag.length-1] != ")") {
             cardwithflag += setflag;
         }
         if ((cardwithflag in CardHTMLandType) && (CardHTMLandType[cardwithflag][1] != "site")) {
@@ -3139,9 +3143,13 @@ var WHRareSheetNoSites = removeSites(WHRareSheet," (WH)");
 var WHUncommonSheetNoSites = removeSites(WHUncommonSheet," (WH)");
 var WHCommonSheetNoSites = removeSites(WHCommonSheet," (WH)");
 
-var BASheetANoSites = removeSites(BASheetA," (BA)");
-var BASheetBNoSites = removeSites(BASheetB," (BA)");
-var BASheetCombinedNoSites = [...BASheetANoSites,...BASheetBNoSites];
+var BOSheetANoSites = removeSites(BOSheetA," (BA)");
+var BOSheetBNoSites = removeSites(BOSheetB," (BA)");
+var BOSheetCombinedNoSites = [...BOSheetANoSites,...BOSheetBNoSites];
+
+var BASheetANoSites_reprints = removeSites(BASheetA_reprints," (BA)");
+var BASheetBNoSites_reprints = removeSites(BASheetB_reprints," (BA)");
+var BASheetCombinedNoSites = [...BOSheetANoSites,...BASheetANoSites_reprints,...BOSheetBNoSites,...BASheetBNoSites_reprints];
 
 function publishCard(card,Preview,ListofCards) {
     let [htmlname,cardtype] = CardHTMLandType[card];
@@ -3341,15 +3349,26 @@ for (let i = 0; i < parseInt(document.getElementById("WHB").value); i++) {
     }
 }
 
+//THE BALROG ONLY COMBINED SET PACKS
+for (let i = 0; i < parseInt(document.getElementById("BOS").value); i++) {
+    Preview.push("<h1 class=\"pack\"><b>The Balrog Only 2-Box Set Pack "+(i+1)+"</b></h1>");
+    [seed,pick] = chooseN(seed, BOSheetCombinedNoSites, parseInt(document.getElementById("BOC").value));
+    pack = pick;
+    for (let cardind = 0; cardind < pack.length; ++cardind) {
+        publishCard(pack[cardind]+(pack[cardind][pack[cardind].length-1] != ")" ? " (BA)" : ""),Preview,ListofCards);
+    }
+}
+
 //THE BALROG COMBINED SET PACKS
 for (let i = 0; i < parseInt(document.getElementById("BAS").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Balrog 2-Box Set Pack "+(i+1)+"</b></h1>");
     [seed,pick] = chooseN(seed, BASheetCombinedNoSites, parseInt(document.getElementById("BAC").value));
     pack = pick;
     for (let cardind = 0; cardind < pack.length; ++cardind) {
-        publishCard(pack[cardind]+(pack[cardind][-1] != ")" ? " (BA)" : ""),Preview,ListofCards);
+        publishCard(pack[cardind]+(pack[cardind][pack[cardind].length-1] != ")" ? " (BA)" : ""),Preview,ListofCards);
     }
 }
+
 
 
 // Update Screen
@@ -3461,8 +3480,16 @@ for (let i = 0; i < parseInt(document.getElementById("BAS").value); i++) {
 	    <td bgcolor=#7EABAA><input type="number" id="WHB" min="0" value=4></td>
 	  </tr>
 	  <tr>
+	    <td bgcolor=#7A89A2>MEBA-only 2-box sets:</td>
+	    <td bgcolor=#7A89A2><input type="number" id="BOS" min="0" value=2></td>
+	  </tr>
+	  <tr>
+	    <td bgcolor=#7A89A2>MEBA-only cards per set:</td>
+	    <td bgcolor=#7A89A2><input type="number" id="BOC" min="1" max="110" value=8></td>
+	  </tr>
+	  <tr>
 	    <td bgcolor=#7A89A2>MEBA 2-box sets:</td>
-	    <td bgcolor=#7A89A2><input type="number" id="BAS" min="0" value=2></td>
+	    <td bgcolor=#7A89A2><input type="number" id="BAS" min="0" value=0></td>
 	  </tr>
 	  <tr>
 	    <td bgcolor=#7A89A2>MEBA cards per set:</td>
