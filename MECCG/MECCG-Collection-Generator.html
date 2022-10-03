@@ -2075,7 +2075,6 @@ function removeSites(cardlist, setflag) {
 
 function buildSheet(expansion,rarity) {
     let ret = [];
-    let cardrarity;
     for (const card in CardCatalog) {
         if (card.slice(card.length-3,card.length-1) == expansion &&
             CardCatalog[card][1].includes(rarity)) {
@@ -2086,7 +2085,7 @@ function buildSheet(expansion,rarity) {
                         ret.push(card);
                     }
                     else {
-		        for (let i = parseInt(cardrarity.slice(rarity.length)); i > 0; --i) {
+                        for (let i = parseInt(cardrarity.slice(rarity.length)); i > 0; --i) {
                             ret.push(card);
                         }
                     }
@@ -2096,6 +2095,18 @@ function buildSheet(expansion,rarity) {
     }
     return ret;
 }
+
+function filterSheet(sheet, incinds, incvals) {
+    for (var ind = sheet.length; ind--; ) {
+        for (incind in incinds) {
+            if (! CardCatalog[sheet[ind]][incinds[incind]] || (incvals[incind] && ! CardCatalog[sheet[ind]][incinds[incind]].includes(incvals[incind]))) {
+                sheet.splice(ind,1);
+                break;
+            }
+        }
+    }
+}
+
 
 
 var TWFixedPacksNoSites = [];
@@ -2167,12 +2178,18 @@ var BASheetBNoSites_reprints = removeSites(BASheetB_reprints,"");
 var BASheetCombinedNoSites = [...BOSheetANoSites,...BASheetANoSites_reprints,...BOSheetBNoSites,...BASheetBNoSites_reprints];
 
 
+
+var TWPromoSheet = buildSheet("TW","P");
+
+var TWRareCharacterSheet = [...TWRareSheetNoSites];
+filterSheet(TWRareCharacterSheet,[3],["C"]);
+var TWUncommonCharacterSheet = [...TWUncommonSheetNoSites];
+filterSheet(TWUncommonCharacterSheet,[3],["C"]);
+var TWCommonCharacterSheet = [...TWCombinedCommonSheetsNoSites];
+filterSheet(TWCommonCharacterSheet,[3],["C"]);
+
 var TWCommonMPResourceSheet = [...TWCombinedCommonSheetsNoSites];
-for (var ind = TWCommonMPResourceSheet.length; ind--; ) {
-    if (CardCatalog[TWCommonMPResourceSheet[ind]][3] != "R" || ! CardCatalog[TWCommonMPResourceSheet[ind]][5]) {
-        TWCommonMPResourceSheet.splice(ind,1);
-    }
-}
+filterSheet(TWCommonMPResourceSheet,[3,5],["R",]);
 
 
 // guaranteed ally: common, non-specific, worth MP
@@ -2655,6 +2672,32 @@ for (let i = 0; i < parseInt(document.getElementById("BAS").value); i++) {
     }
 }
 
+// TW promos
+if (document.getElementById("TWP").value > 0) {
+    Preview.push("<h1 class=\"pack\"><b>TW Promos</b></h1>");
+    for (let i = 0; i < parseInt(document.getElementById("TWP").value); i++) {
+        [seed,pick] = chooseN(seed,TWPromoSheet,1);
+        publishCard(pick[0],Preview,ListofCards);
+    }
+}
+
+// TW characters
+if (document.getElementById("TWcr").value > 0 || document.getElementById("TWcu").value > 0 || document.getElementById("TWcc").value > 0) {
+    Preview.push("<h1 class=\"pack\"><b>TW Characters</b></h1>");
+    for (let i = 0; i < parseInt(document.getElementById("TWcr").value); i++) {
+        [seed,pick] = chooseN(seed,TWRareCharacterSheet,1);
+        publishCard(pick[0],Preview,ListofCards);
+    }
+    for (let i = 0; i < parseInt(document.getElementById("TWcu").value); i++) {
+        [seed,pick] = chooseN(seed,TWUncommonCharacterSheet,1);
+        publishCard(pick[0],Preview,ListofCards);
+    }
+    for (let i = 0; i < parseInt(document.getElementById("TWcc").value); i++) {
+        [seed,pick] = chooseN(seed,TWCommonCharacterSheet,1);
+        publishCard(pick[0],Preview,ListofCards);
+    }
+}
+
 // TW common MP resources
 if (document.getElementById("TWcMPr").value > 0) {
     Preview.push("<h1 class=\"pack\"><b>TW common MP resources</b></h1>");
@@ -2837,7 +2880,15 @@ window.addEventListener("load", (event) => {
 	  </tr>
 
 	  <tr>
-	    <td>TW common MP resources:</td>
+	    <td>TW promos:</td>
+	    <td><input type="number" id="TWP" min="0" value=0></td>
+	  </tr>
+	  <tr>
+	    <td>TW chars: R<input type="number" id="TWcr" min="0" style="width: 2.2em;" value=0>, U<input type="number" id="TWcu" min="0" style="width: 2.2em;" value=0>, C</td>
+	    <td><input type="number" id="TWcc" min="0" style="width: 2.2em;" value=0></td>
+	  </tr>
+	  <tr>
+	    <td>TW C MP resources:</td>
 	    <td><input type="number" id="TWcMPr" min="0" value=0></td>
 	  </tr>
 	  <tr>
