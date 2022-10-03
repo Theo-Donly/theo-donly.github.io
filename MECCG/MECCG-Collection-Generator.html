@@ -2096,12 +2096,23 @@ function buildSheet(expansion,rarity) {
     return ret;
 }
 
-function filterSheet(sheet, incinds, incvals) {
+function filterSheet(sheet, incinds, incvals, excinds, excvals) {
+sheetloop:
     for (var ind = sheet.length; ind--; ) {
-        for (incind in incinds) {
-            if (! CardCatalog[sheet[ind]][incinds[incind]] || (incvals[incind] && ! CardCatalog[sheet[ind]][incinds[incind]].includes(incvals[incind]))) {
+        for (var incind in incinds) {
+            if ((typeof incvals[incind] == "undefined" && typeof CardCatalog[sheet[ind]][incinds[incind]] != "undefined") ||
+                (typeof incvals[incind] == "number" && CardCatalog[sheet[ind]][incinds[incind]] != incvals[incind]) ||
+                (typeof incvals[incind] == "string" && ! CardCatalog[sheet[ind]][incinds[incind]].includes(incvals[incind]))) {
                 sheet.splice(ind,1);
-                break;
+                continue sheetloop;
+            }
+        }
+        for (var excind in excinds) {
+            if ((typeof excvals[excind] == "undefined" && typeof CardCatalog[sheet[ind]][excinds[excind]] == "undefined") ||
+                (typeof excvals[excind] == "number" && CardCatalog[sheet[ind]][excinds[excind]] == excvals[excind]) ||
+                (typeof excvals[excind] == "string" && CardCatalog[sheet[ind]][excinds[excind]].excludes(excvals[excind]))) {
+                sheet.splice(ind,1);
+                continue sheetloop;
             }
         }
     }
@@ -2188,8 +2199,19 @@ filterSheet(TWUncommonCharacterSheet,[3],["C"]);
 var TWCommonCharacterSheet = [...TWCombinedCommonSheetsNoSites];
 filterSheet(TWCommonCharacterSheet,[3],["C"]);
 
+var TWCharacterSheet = [...TWRareCharacterSheet,...TWUncommonCharacterSheet,...TWCommonCharacterSheet,...TWPromoSheet];
+filterSheet(TWCharacterSheet,[3],["C"]);
+var TW3MPCharacterSheet = [...TWCharacterSheet];
+filterSheet(TW3MPCharacterSheet,[5],[3]);
+var TW2MPCharacterSheet = [...TWCharacterSheet];
+filterSheet(TW2MPCharacterSheet,[5],[2]);
+var TW1MPCharacterSheet = [...TWCharacterSheet];
+filterSheet(TW1MPCharacterSheet,[5],[1]);
+var TW0MPCharacterSheet = [...TWCharacterSheet];
+filterSheet(TW0MPCharacterSheet,[5],[]);
+
 var TWCommonMPResourceSheet = [...TWCombinedCommonSheetsNoSites];
-filterSheet(TWCommonMPResourceSheet,[3,5],["R",]);
+filterSheet(TWCommonMPResourceSheet,[3],["R"],[5],[]);
 
 
 // guaranteed ally: common, non-specific, worth MP
@@ -2206,6 +2228,7 @@ function Generate() {
     let uniquefixed = document.getElementById("uniquefixed").checked;
     let mixfixed = document.getElementById("mixfixed").checked;
     let fixed = {};
+    let fixedchars = {};
     let hallies = 0;
     let mallies = 0;
     let pack;
@@ -2251,7 +2274,7 @@ function Generate() {
                     [pickind[0],pickind[1]] = [pickind[1],pickind[0]];
                 }
             }
-            fixed[pickind[0]*TWMixedFixedPacks[0].length+pickind[1]] = 1;
+            fixed[pickind[0]*TWMixedFixedPacks[0].length+pickind[1]] = "";
         }
         pack = [TWMixedFixedPacks[0][pickind[0]],TWMixedFixedPacks[0][pickind[1]]];
         // Pick a high MP char+faction
@@ -2260,7 +2283,7 @@ function Generate() {
             while ("B"+pickind in fixed) {
                 [seed,pickind] = weakRand48int(seed, TWMixedFixedPacks[1].length);
             }
-            fixed["B"+pickind] = 1;
+            fixed["B"+pickind] = "";
         }
         pick = TWMixedFixedPacks[1][pickind];
         pack.push(...pick);
@@ -2279,15 +2302,15 @@ function Generate() {
                 [seed,pickind] = weakRand48int(seed, param[0]);
                 pickind += param[1];
             }
-            fixed["C"+pickind] = 1;
+            fixed["C"+pickind] = "";
         }
         pick = TWMixedFixedPacks[2][pickind];
         pack.push(...pick);
         if (pickind == 0) {
-            blocked[3] = 1; // block Boromir
+            blocked[3] = ""; // block Boromir
         }
         else if (pickind == 4) {
-            blocked[4] = 1; // block Robin
+            blocked[4] = ""; // block Robin
         }
         // Pick an Elf with no associated faction
         if (pickindB < 2) { // limit to 1 3-MP character
@@ -2301,7 +2324,7 @@ function Generate() {
             while ("D"+pickind in fixed) {
                 [seed,pickind] = weakRand48int(seed, param);
             }
-            fixed["D"+pickind] = 1;
+            fixed["D"+pickind] = "";
         }
         pick = TWMixedFixedPacks[3][pickind];
         pack.push(pick);
@@ -2311,12 +2334,12 @@ function Generate() {
             while ("E"+pickind in fixed) {
                 [seed,pickind] = weakRand48int(seed, TWMixedFixedPacks[4].length);
             }
-            fixed["E"+pickind] = 1;
+            fixed["E"+pickind] = "";
         }
         pick = TWMixedFixedPacks[4][pickind];
         pack.push(pick);
         if (pickind < 3) {
-            blocked[pickind] = 1; // block scout
+            blocked[pickind] = ""; // block scout
         }
         // Pick a two-chance character
         [seed,pickind] = weakRand48int(seed, TWMixedFixedPacks[5].length);
@@ -2324,7 +2347,7 @@ function Generate() {
             while ("F"+pickind in fixed || pickind in blocked) {
                 [seed,pickind] = weakRand48int(seed, TWMixedFixedPacks[5].length);
             }
-            fixed["F"+pickind] = 1;
+            fixed["F"+pickind] = "";
         }
         else {
             while (pickind in blocked) {
@@ -2350,8 +2373,8 @@ function Generate() {
             [seed,pickind] = chooseN(seed, [...LEMixedFixedPacks[0].keys()], 2);
         }
         if (uniquefixed) {
-            fixed[pickind[0]] = 1;
-            fixed[pickind[1]] = 1;
+            fixed[pickind[0]] = "";
+            fixed[pickind[1]] = "";
         }
         pack = [LEMixedFixedPacks[0][pickind[0]],LEMixedFixedPacks[0][pickind[1]]];
         // Pick a man char+faction
@@ -2360,7 +2383,7 @@ function Generate() {
             while ("B"+pickind in fixed) {
                 [seed,pickind] = weakRand48int(seed, LEMixedFixedPacks[1].length);
             }
-            fixed["B"+pickind] = 1;
+            fixed["B"+pickind] = "";
         }
         pick = LEMixedFixedPacks[1][pickind];
         pack.push(...pick);
@@ -2374,7 +2397,7 @@ function Generate() {
             while ("C"+pickind in fixed) {
                 [seed,pickind] = weakRand48int(seed, LEMixedFixedPacks[2].length);
             }
-            fixed["C"+pickind] = 1;
+            fixed["C"+pickind] = "";
         }
         pick = LEMixedFixedPacks[2][pickind];
         pack.push(pick);
@@ -2395,7 +2418,7 @@ function Generate() {
                 [seed,pickind] = weakRand48int(seed, param[0]);
                 pickind += param[1];
             }
-            fixed["D"+pickind] = 1;
+            fixed["D"+pickind] = "";
         }
         pick = LEMixedFixedPacks[3][pickind];
         pack.push(pick);
@@ -2429,7 +2452,7 @@ function Generate() {
 		    }
 		}
             }
-            fixed["E"+pickind] = 1;
+            fixed["E"+pickind] = "";
         }
         pick = LEMixedFixedPacks[4][pickind];
         pack.push(pick);
@@ -2442,7 +2465,7 @@ function Generate() {
             while ("G"+pickind in fixed) {
                 [seed,pickind] = weakRand48int(seed, LEMixedFixedPacks[6].length);
             }
-            fixed["G"+pickind] = 1;
+            fixed["G"+pickind] = "";
         }
         pick = LEMixedFixedPacks[6][pickind];
         pack.push(pick);
@@ -2464,12 +2487,15 @@ for (let i = 0; i < parseInt(document.getElementById("TWF").value); i++) {
             while (packind in fixed) {
                 [seed,packind] = weakRand48int(seed,TWFixedPacksNoSites.length);
             }
-            fixed[packind] = 1;
+            fixed[packind] = "";
         }
         pack = TWFixedPacksNoSites[packind];
     }
     for (let cardind = 0; cardind < pack.length; ++cardind) {
         publishCard(pack[cardind],Preview,ListofCards);
+        if (CardCatalog[pack[cardind]][3].includes("C")) {
+            fixedchars[pack[cardind]] = "";
+        }
     }
 }
 
@@ -2486,7 +2512,7 @@ for (let i = 0; i < parseInt(document.getElementById("TWS").value); i++) {
 	    while (packind in fixed) {
 		[seed,packind] = weakRand48int(seed,TWFixedPacksNoSites.length);
 	    }
-	    fixed[packind] = 1;
+	    fixed[packind] = "";
 	}
 	pack = TWFixedPacksNoSites[packind].slice();
     }
@@ -2568,12 +2594,15 @@ for (let i = 0; i < parseInt(document.getElementById("LEF").value); i++) {
 	    while (packind in fixed) {
 		[seed,packind] = weakRand48int(seed,LEFixedPacksNoSites.length);
 	    }
-	    fixed[packind] = 1;
+	    fixed[packind] = "";
 	}
 	pack = LEFixedPacksNoSites[packind];
     }
     for (let cardind = 0; cardind < pack.length; ++cardind) {
         publishCard(pack[cardind],Preview,ListofCards);
+        if (CardCatalog[pack[cardind]][3].includes("C")) {
+            fixedchars[pack[cardind]] = "";
+        }
     }
 }
 
@@ -2590,7 +2619,7 @@ for (let i = 0; i < parseInt(document.getElementById("LES").value); i++) {
 	    while (packind in fixed) {
 		[seed,packind] = weakRand48int(seed,LEFixedPacksNoSites.length);
 	    }
-	    fixed[packind] = 1;
+	    fixed[packind] = "";
 	}
 	pack = LEFixedPacksNoSites[packind].slice();
     }
@@ -2678,23 +2707,32 @@ if (document.getElementById("TWP").value > 0) {
     for (let i = 0; i < parseInt(document.getElementById("TWP").value); i++) {
         [seed,pick] = chooseN(seed,TWPromoSheet,1);
         publishCard(pick[0],Preview,ListofCards);
+        if (CardCatalog[pick[0]][3].includes("C")) {
+            fixedchars[pick[0]] = "";
+        }
     }
 }
 
 // TW characters
-if (document.getElementById("TWcr").value > 0 || document.getElementById("TWcu").value > 0 || document.getElementById("TWcc").value > 0) {
+if (document.getElementById("TWcr").value > 0 || document.getElementById("TWcu").value > 0 || document.getElementById("TWcc").value > 0 || document.getElementById("TWc3").value > 0 || document.getElementById("TWc2").value > 0 || document.getElementById("TWc1").value > 0 || document.getElementById("TWc0").value > 0) {
     Preview.push("<h1 class=\"pack\"><b>TW Characters</b></h1>");
-    for (let i = 0; i < parseInt(document.getElementById("TWcr").value); i++) {
-        [seed,pick] = chooseN(seed,TWRareCharacterSheet,1);
-        publishCard(pick[0],Preview,ListofCards);
-    }
-    for (let i = 0; i < parseInt(document.getElementById("TWcu").value); i++) {
-        [seed,pick] = chooseN(seed,TWUncommonCharacterSheet,1);
-        publishCard(pick[0],Preview,ListofCards);
-    }
-    for (let i = 0; i < parseInt(document.getElementById("TWcc").value); i++) {
-        [seed,pick] = chooseN(seed,TWCommonCharacterSheet,1);
-        publishCard(pick[0],Preview,ListofCards);
+    for (let [elemid,sheet] of [["TWcr",TWRareCharacterSheet],
+                                  ["TWcu",TWUncommonCharacterSheet],
+                                  ["TWcc",TWCommonCharacterSheet],
+                                  ["TWc3",TW3MPCharacterSheet],
+                                  ["TWc2",TW2MPCharacterSheet],
+                                  ["TWc1",TW1MPCharacterSheet],
+                                  ["TWc0",TW0MPCharacterSheet]]) {
+        for (let i = 0; i < parseInt(document.getElementById(elemid).value); i++) {
+            [seed,pick] = chooseN(seed,sheet,1);
+            if (uniquefixed) {
+                while (pick[0] in fixedchars) {
+                    [seed,pick] = chooseN(seed,sheet,1);
+                }
+            }
+            publishCard(pick[0],Preview,ListofCards);
+            fixedchars[pick[0]] = "";
+        }
     }
 }
 
@@ -2886,6 +2924,10 @@ window.addEventListener("load", (event) => {
 	  <tr>
 	    <td>TW chars: R<input type="number" id="TWcr" min="0" style="width: 2.2em;" value=0>, U<input type="number" id="TWcu" min="0" style="width: 2.2em;" value=0>, C</td>
 	    <td><input type="number" id="TWcc" min="0" style="width: 2.2em;" value=0></td>
+	  </tr>
+	  <tr>
+	    <td align="right">3MP<input type="number" id="TWc3" min="0" style="width: 2.2em;" value=0>, 2<input type="number" id="TWc2" min="0" style="width: 2.2em;" value=0>, 1<input type="number" id="TWc1" min="0" style="width: 2.2em;" value=0>, 0</td>
+	    <td><input type="number" id="TWc0" min="0" style="width: 2.2em;" value=0></td>
 	  </tr>
 	  <tr>
 	    <td>TW C MP resources:</td>
