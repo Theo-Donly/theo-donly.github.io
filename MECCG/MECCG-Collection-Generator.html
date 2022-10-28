@@ -2226,7 +2226,7 @@ function Generate() {
     let imgloading = document.getElementById("lazyload").checked ? "\"lazy\"" : "\"eager\"";
     let seed = hashstr(document.getElementById("seed").value);
     let uniquefixed = document.getElementById("uniquefixed").checked;
-    let mixfixed = document.getElementById("mixfixed").checked;
+    let mixedfixed = document.getElementById("mixedfixed").checked;
     let fixed = {};
     let fixedchars = {};
     let hallies = 0;
@@ -2477,7 +2477,7 @@ function Generate() {
 fixed = {};
 for (let i = 0; i < parseInt(document.getElementById("TWF").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Wizards Fixed Pack "+(i+1)+"</b></h1>");
-    if (mixfixed) {
+    if (mixedfixed) {
         pack = genSubFixedPack_TW();
     }
     else {
@@ -2502,7 +2502,7 @@ for (let i = 0; i < parseInt(document.getElementById("TWF").value); i++) {
 //THE WIZARDS STARTER DECKS
 for (let i = 0; i < parseInt(document.getElementById("TWS").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Wizards Starter Pack "+(i+1)+"</b></h1>");
-    if (mixfixed) {
+    if (mixedfixed) {
         pack = genSubFixedPack_TW();
     }
     else {
@@ -2584,7 +2584,7 @@ for (let i = 0; i < parseInt(document.getElementById("DMB").value); i++) {
 fixed = {};
 for (let i = 0; i < parseInt(document.getElementById("LEF").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Lidless Eye Fixed Pack "+(i+1)+"</b></h1>");
-    if (mixfixed) {
+    if (mixedfixed) {
         pack = genSubFixedPack_LE();
     }
     else {
@@ -2609,7 +2609,7 @@ for (let i = 0; i < parseInt(document.getElementById("LEF").value); i++) {
 //THE LIDLESS EYE STARTER DECKS
 for (let i = 0; i < parseInt(document.getElementById("LES").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Lidless Eye Starter Pack "+(i+1)+"</b></h1>");
-    if (mixfixed) {
+    if (mixedfixed) {
         pack = genSubFixedPack_LE();
     }
     else {
@@ -2702,9 +2702,9 @@ for (let i = 0; i < parseInt(document.getElementById("BAS").value); i++) {
 }
 
 // TW promos
-if (document.getElementById("TWP").value > 0) {
+if (document.getElementById("TWp").value > 0) {
     Preview.push("<h1 class=\"pack\"><b>TW Promos</b></h1>");
-    for (let i = 0; i < parseInt(document.getElementById("TWP").value); i++) {
+    for (let i = 0; i < parseInt(document.getElementById("TWp").value); i++) {
         [seed,pick] = chooseN(seed,TWPromoSheet,1);
         publishCard(pick[0],Preview,ListofCards);
         if (CardCatalog[pick[0]][3].includes("C")) {
@@ -2746,16 +2746,25 @@ if (document.getElementById("TWcMPr").value > 0) {
 }
 
 // Guaranteed allies
-if (document.getElementById("hallies").value > hallies) {
-    Preview.push("<h1 class=\"pack\"><b>Guaranteed Hero Allies</b></h1>");
-    while (document.getElementById("hallies").value > hallies) {
+if (document.getElementById("gHa").value > 0 || document.getElementById("gHam").value > hallies) {
+    Preview.push("<h1 class=\"pack\"><b>Generic Hero Allies</b></h1>");
+    for (let i = 0; i < parseInt(document.getElementById("gHa").value); i++) {
+        [seed,pick] = chooseN(seed,HGenericAllySheet,1);
+        publishCard(pick[0],Preview,ListofCards);
+    }
+    while (document.getElementById("gHam").value > hallies) {
         [seed,pick] = chooseN(seed,HGenericAllySheet,1);
         publishCard(pick[0],Preview,ListofCards);
     }
 }
-if (document.getElementById("mallies").value > mallies) {
-    Preview.push("<h1 class=\"pack\"><b>Guaranteed Minion Allies</b></h1>");
-    while (document.getElementById("mallies").value > mallies) {
+
+if (document.getElementById("gMa").value > 0 || document.getElementById("gMam").value > mallies) {
+    Preview.push("<h1 class=\"pack\"><b>Generic Minion Allies</b></h1>");
+    for (let i = 0; i < parseInt(document.getElementById("gMa").value); i++) {
+        [seed,pick] = chooseN(seed,MGenericAllySheet,1);
+        publishCard(pick[0],Preview,ListofCards);
+    }
+    while (document.getElementById("gMam").value > mallies) {
         [seed,pick] = chooseN(seed,MGenericAllySheet,1);
         publishCard(pick[0],Preview,ListofCards);
     }
@@ -2800,6 +2809,19 @@ function changeViewChoice() {
 
 window.addEventListener("load", (event) => {
     changeViewChoice();
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    for (let [key,val] of urlParams.entries()) {
+        if (document.getElementById(key)) {
+            if (document.getElementById(key).getAttribute("type") == "checkbox") {
+                document.getElementById(key).setAttribute("checked","")
+            }
+            else if (document.getElementById(key).getAttribute("type") == "number") {
+                document.getElementById(key).setAttribute("value",parseInt(val));
+            }
+        }
+    }
 });
 
     </script>
@@ -2844,105 +2866,118 @@ window.addEventListener("load", (event) => {
 	<div style="font-size:60%">leveraging <input type="text" style="font-size:90%" id="imagebase" value="http://meccg.fairuse.org"></div>
 	<div style="font-size:60%">(only load images on screen <input type="checkbox" id="lazyload" checked>)</div>
 	<div style="font-size:80%">View expansions<input type="checkbox" id="viewexpansions" onClick="changeViewChoice()" checked>, adjustments<input type="checkbox" id="viewadjustments" onClick="changeViewChoice()"></div>
-	<br>
-	<table id="expansions">
-	  <tr>
-	    <td bgcolor=#E2C6BA>METW fixed packs:</td>
-	    <td bgcolor=#E2C6BA><input type="number" id="TWF" min="0" value=1></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#E2C6BA>METW starter decks:</td>
-	    <td bgcolor=#E2C6BA><input type="number" id="TWS" min="0" value=1></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#E2C6BA>METW booster packs:</td>
-	    <td bgcolor=#E2C6BA><input type="number" id="TWB" min="0" value=2></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#E2C6BA>METD booster packs:</td>
-	    <td bgcolor=#E2C6BA><input type="number" id="TDB" min="0" value=2></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#E2C6BA>MEDM booster packs:</td>
-	    <td bgcolor=#E2C6BA><input type="number" id="DMB" min="0" value=2></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#7A89A2>MELE fixed packs:</td>
-	    <td bgcolor=#7A89A2><input type="number" id="LEF" min="0" value=1></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#7A89A2>MELE starter decks:</td>
-	    <td bgcolor=#7A89A2><input type="number" id="LES" min="0" value=1></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#7A89A2>MELE booster packs:</td>
-	    <td bgcolor=#7A89A2><input type="number" id="LEB" min="0" value=2></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#7A89A2>MEAS booster packs:</td>
-	    <td bgcolor=#7A89A2><input type="number" id="ASB" min="0" value=3></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#7EABAA>MEWH booster packs:</td>
-	    <td bgcolor=#7EABAA><input type="number" id="WHB" min="0" value=4></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#7A89A2>MEBA-only 2-box sets:</td>
-	    <td bgcolor=#7A89A2><input type="number" id="BOS" min="0" value=2></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#7A89A2>MEBA-only cards per set:</td>
-	    <td bgcolor=#7A89A2><input type="number" id="BOC" min="1" max="110" value=8></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#7A89A2>MEBA 2-box sets:</td>
-	    <td bgcolor=#7A89A2><input type="number" id="BAS" min="0" value=0></td>
-	  </tr>
-	  <tr>
-	    <td bgcolor=#7A89A2>MEBA cards per set:</td>
-	    <td bgcolor=#7A89A2><input type="number" id="BAC" min="1" max="224" value=8></td>
-	  </tr>
-	</table>
-        <table id="adjustments" hidden>
-	  <tr>
-	    <td>Remove sites and regions?</td>
-	    <td><input type="checkbox" id="allowsite" checked disabled=1></td>
-	  </tr>
-	  <tr>
-	    <td>Unique fixed packs?</td>
-	    <td><input type="checkbox" id="uniquefixed" checked></td>
-	  </tr>
-	  <tr>
-	    <td>Theo's mixed fixed packs?</td>
-	    <td><input type="checkbox" id="mixfixed"></td>
-	  </tr>
+	<hr>
+	<div id="expansions">
+	  <table>
+	    <tr>
+	      <td bgcolor=#E2C6BA>METW fixed packs:</td>
+	      <td bgcolor=#E2C6BA><input type="number" id="TWF" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#E2C6BA>METW starter decks:</td>
+	      <td bgcolor=#E2C6BA><input type="number" id="TWS" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#E2C6BA>METW booster packs:</td>
+	      <td bgcolor=#E2C6BA><input type="number" id="TWB" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#E2C6BA>METD booster packs:</td>
+	      <td bgcolor=#E2C6BA><input type="number" id="TDB" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#E2C6BA>MEDM booster packs:</td>
+	      <td bgcolor=#E2C6BA><input type="number" id="DMB" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#7A89A2>MELE fixed packs:</td>
+	      <td bgcolor=#7A89A2><input type="number" id="LEF" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#7A89A2>MELE starter decks:</td>
+	      <td bgcolor=#7A89A2><input type="number" id="LES" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#7A89A2>MELE booster packs:</td>
+	      <td bgcolor=#7A89A2><input type="number" id="LEB" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#7A89A2>MEAS booster packs:</td>
+	      <td bgcolor=#7A89A2><input type="number" id="ASB" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#7EABAA>MEWH booster packs:</td>
+	      <td bgcolor=#7EABAA><input type="number" id="WHB" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#7A89A2>MEBA-only 2-box sets:</td>
+	      <td bgcolor=#7A89A2><input type="number" id="BOS" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#7A89A2>MEBA-only cards per set:</td>
+	      <td bgcolor=#7A89A2><input type="number" id="BOC" min="1" max="110" value=10></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#7A89A2>MEBA 2-box sets:</td>
+	      <td bgcolor=#7A89A2><input type="number" id="BAS" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td bgcolor=#7A89A2>MEBA cards per set:</td>
+	      <td bgcolor=#7A89A2><input type="number" id="BAC" min="1" max="224" value=10></td>
+	    </tr>
+	  </table>
+	  <hr>
+	</div>
+	<div id="adjustments" hidden>
+          <table>
+	    <tr>
+	      <td>Remove sites and regions?</td>
+	      <td><input type="checkbox" id="allowsite" checked disabled=1></td>
+	    </tr>
+	    <tr>
+	      <td>Unique fixed packs?</td>
+	      <td><input type="checkbox" id="uniquefixed"></td>
+	    </tr>
+	    <tr>
+	      <td>Theo's mixed fixed packs?</td>
+	      <td><input type="checkbox" id="mixedfixed"></td>
+	    </tr>
 
-	  <tr>
-	    <td>TW promos:</td>
-	    <td><input type="number" id="TWP" min="0" value=0></td>
-	  </tr>
-	  <tr>
-	    <td>TW chars: R<input type="number" id="TWcr" min="0" style="width: 2.2em;" value=0>, U<input type="number" id="TWcu" min="0" style="width: 2.2em;" value=0>, C</td>
-	    <td><input type="number" id="TWcc" min="0" style="width: 2.2em;" value=0></td>
-	  </tr>
-	  <tr>
-	    <td align="right">3MP<input type="number" id="TWc3" min="0" style="width: 2.2em;" value=0>, 2<input type="number" id="TWc2" min="0" style="width: 2.2em;" value=0>, 1<input type="number" id="TWc1" min="0" style="width: 2.2em;" value=0>, 0</td>
-	    <td><input type="number" id="TWc0" min="0" style="width: 2.2em;" value=0></td>
-	  </tr>
-	  <tr>
-	    <td>TW C MP resources:</td>
-	    <td><input type="number" id="TWcMPr" min="0" value=0></td>
-	  </tr>
-	  <tr>
-	    <td>Guaranteed Hero allies:</td>
-	    <td><input type="number" id="hallies" min="0" value=0></td>
-	  </tr>
-	  <tr>
-	    <td>Guaranteed Minion allies:</td>
-	    <td><input type="number" id="mallies" min="0" value=0></td>
-	  </tr>
-	</table>
-	<br>
+	    <tr>
+	      <td>TW promos:</td>
+	      <td><input type="number" id="TWp" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td>TW chars: R<input type="number" id="TWcr" min="0" style="width: 2.2em;" value=0>, U<input type="number" id="TWcu" min="0" style="width: 2.2em;" value=0>, C</td>
+	      <td><input type="number" id="TWcc" min="0" style="width: 2.2em;" value=0></td>
+	    </tr>
+	    <tr>
+	      <td align="right">3MP<input type="number" id="TWc3" min="0" style="width: 2.2em;" value=0>, 2<input type="number" id="TWc2" min="0" style="width: 2.2em;" value=0>, 1<input type="number" id="TWc1" min="0" style="width: 2.2em;" value=0>, 0</td>
+	      <td><input type="number" id="TWc0" min="0" style="width: 2.2em;" value=0></td>
+	    </tr>
+	    <tr>
+	      <td>TW common MP resources:</td>
+	      <td><input type="number" id="TWcMPr" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td>Generic Hero allies:</td>
+	      <td><input type="number" id="gHa" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td align="right">bringing Hero allies to:</td>
+	      <td><input type="number" id="gHam" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td>Generic Minion allies:</td>
+	      <td><input type="number" id="gMa" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td align="right">bringing Minion allies to:</td>
+	      <td><input type="number" id="gMam" min="0" value=0></td>
+	    </tr>
+	  </table>
+	  <hr>
+	</div>
 	
 	seed: <input type="text" id="seed" size="16" value="0"><br>
 	<br>
