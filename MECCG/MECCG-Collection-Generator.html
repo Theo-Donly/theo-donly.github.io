@@ -2770,6 +2770,11 @@ if (document.getElementById("gMa").value > 0 || document.getElementById("gMam").
     }
 }
 
+if (document.getElementById("Hdc").checked) {
+    Preview.push("<h1 class=\"pack\"><b>Hero Dunk Cards</b></h1>");
+    publishCard("The One Ring [H] (TW)",Preview,ListofCards);
+    publishCard("Cracks of Doom (TW)",Preview,ListofCards);
+}
 
 // Update Screen
     document.getElementById("preview").innerHTML = Preview.join("");
@@ -2974,6 +2979,10 @@ window.addEventListener("load", (event) => {
 	    <tr>
 	      <td align="right">bringing Minion allies to:</td>
 	      <td><input type="number" id="gMam" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td>Hero dunk cards?</td>
+	      <td><input type="checkbox" id="Hdc"></td>
 	    </tr>
 	  </table>
 	  <hr>
