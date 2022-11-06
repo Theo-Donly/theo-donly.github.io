@@ -2825,6 +2825,9 @@ window.addEventListener("load", (event) => {
             else if (document.getElementById(key).getAttribute("type") == "number") {
                 document.getElementById(key).setAttribute("value",parseInt(val));
             }
+            else if (document.getElementById(key).getAttribute("type") == "text") {
+                document.getElementById(key).setAttribute("value",val);
+            }
         }
     }
 });
