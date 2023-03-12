@@ -4,11 +4,11 @@ PARTICIPATION SCORE
 53	Celith
 52	Shapeshifter
 52	Trotter
+45	Bilbo
 45	Bergil
 42	Adamj
 39	langloude
 35	GaerethBarethson
-34	Bilbo
 34	FUBAR
 32	DamienX207
 26	CDavis7M
@@ -20,7 +20,6 @@ PARTICIPATION SCORE
 15	manadadeanimales
 14	aleaax
 12	Saurn
-11	sfakattack
 11	hcanadian55
 11	Lake Town Geezer
 9	rezwits
