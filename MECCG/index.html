@@ -46,6 +46,10 @@
       padding:12px;
       vertical-align:top;
       }
+      code.name {
+      font-size:15px;
+      color:darkslateblue;
+      }
     </style>
     <script type="text/javascript">
       function switchDisplay(display) {
@@ -54,7 +58,7 @@
       document.getElementById("welcome").setAttribute("hidden","");
       document.getElementById("events").setAttribute("hidden","");
       document.getElementById("standings").setAttribute("hidden","");
-      document.getElementById("musings").setAttribute("hidden","");
+      document.getElementById("counsel").setAttribute("hidden","");
       document.getElementById("resources").setAttribute("hidden","");
       document.getElementById("community").setAttribute("hidden","");
       document.getElementById("about").setAttribute("hidden","");
@@ -78,7 +82,7 @@
 	<button type="button" class="nav banner sigil" id="button-welcome" onclick="switchDisplay('welcome')">&nbsp;&nbsp;</button>
 	<button type="button" class="nav banner" id="button-events" onclick="switchDisplay('events')">Events</button>
 	<button type="button" class="nav banner" id="button-standings" onclick="switchDisplay('standings')">Standings</button>
-	<button type="button" class="nav banner" id="button-musings" onclick="switchDisplay('musings')">Musings</button>
+	<button type="button" class="nav banner" id="button-counsel" onclick="switchDisplay('counsel')">Counsel</button>
 	<button type="button" class="nav banner" id="button-resources" onclick="switchDisplay('resources')">Resources</button>
 	<button type="button" class="nav banner" id="button-community" onclick="switchDisplay('community')">Community</button>
 	<button type="button" class="nav banner" id="button-about" onclick="switchDisplay('about')">About</button>
@@ -119,16 +123,22 @@
 	    <th>Details</th>
 	  </tr>
 	  <tr>
-	    <td class="buffer">March or April</td>
+	    <td class="buffer">March</td>
 	    <td class="buffer">Civilized Challenge</td>
 	    <td class="buffer">Theo</td>
-	    <td class="buffer">(Pre-)Constructed: allows challenge decks, or decks with at most 3 rares and 15-card sideboards, along with additional card bans including sustainable roadblock hazards, immediate removal hazards, and character removal resources.  Additional civilized rule modifications.
+	    <td class="buffer">(Pre-)Constructed: allows Challenge Decks, or constructed decks with at most 3 rares and 15-card sideboards, along with additional card bans including sustainable roadblock hazards, immediate removal hazards, and character removal resources.  Additional civilized rule modifications.
 	  </tr>
 	  <tr>
 	    <td class="buffer">June or July</td>
 	    <td class="buffer">All Expansion Sealed Collection</td>
 	    <td class="buffer">Theo</td>
 	    <td class="buffer">Sealed: cards from all expansions, incentives for playing multiple alignments, early round pairings based on alignment.
+	  </tr>
+	  <tr>
+	    <td class="buffer">Fall</td>
+	    <td class="buffer">General Opponent</td>
+	    <td class="buffer">TBD</td>
+	    <td class="buffer">The Moot of Meduseld.</td>
 	  </tr>
 	</table>
 	<br>
@@ -139,6 +149,7 @@
 	    <th>Event</th>
 	    <th>Organizer</th>
 	    <th>Details</th>
+	    <th>Reviews</th>
 	  </tr>
 	  <tr>
 	    <td class="buffer">2022-12</td>
@@ -156,13 +167,16 @@
 	    <td class="buffer">2022-10</td>
 	    <td class="buffer">Halfling (by Name)</td>
 	    <td class="buffer">DamienX207</td>
-	    <td class="buffer">Constructed: at most 1 of any card other than: avatar characters; one resource; one hazard; one other resource which is at most 2; one other hazard which is at most 2.
+	    <td class="buffer">Constructed: at most 1 of any card other than: avatar characters; one resource; one hazard; one other resource which is at most 2; one other hazard which is at most 2.</td>
+	    <td><a target="_blank" rel="noopener noreferrer" href="reviews/202210-Halfling_Theo.txt">Theo (1)</a><br>
+	      <a target="_blank" rel="noopener noreferrer" href="reviews/202210-Halfling_sarma72.txt">sarma72 (2)</a></td>
 	  </tr>
 	  <tr>
 	    <td class="buffer">2022-07</td>
 	    <td class="buffer">All Expansion Sealed Collection</td>
 	    <td class="buffer">Theo</td>
-	    <td class="buffer">Sealed: 1 METW starter, 1 different METW fixed pack, 2 METW boosters, 2 METD, 2 MEDM, 1 MELE starter, 1 different MELE fixed pack, 2 MELE booster, 3 MEAS booster, 4 MEWH booster, 2 draws of 8 MEBA-only cards from the combined deck boxes, 1 more avatar character card of choice, Fallen alignment only if covert-only (Hero) or at least half Orc+Troll (Minion), early round pairings based on alignment.
+	    <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="MECCG-Collection-Generator.html?TWS=1&TWF=1&TWB=2&TDB=2&DMB=2&LES=1&LEF=1&LEB=2&ASB=3&WHB=4&BOS=2&BOC=8&uniquefixed">353-card sealed</a>, plus 1 more avatar character card of choice, Fallen decks only if covert-only (as Hero) or at least half Orc+Troll (as Minion), early round pairings based on alignment.</td>
+	    <td><a target="_blank" rel="noopener noreferrer" href="reviews/202207-AESC_Adamj.txt">Adamj (2)</a></td>
 	  </tr>
 	  <tr>
 	    <td class="buffer">2021-11</td>
@@ -187,6 +201,7 @@
 	    <td class="buffer">General Opponent</td>
 	    <td class="buffer">Bergil</td>
 	    <td class="buffer">Constructed</td>
+	    <td><a target="_blank" rel="noopener noreferrer" href="reviews/202008-GO_Theo.txt">Theo (2)</a></td>
 	  </tr>
 	</table>
       </div>
@@ -214,24 +229,38 @@
 	</center>
 	<h1 style="margin-top: 0;">Standings</h1>
 	<center>
-	  <table style="border-spacing:0px;">
+	  <table style="border-spacing:0px; border: 1px solid black;}">
 	    <tr>
 	      <td class="buffer">2023 Q1:</td>
-	      <td class="buffer"><a href="2023Q1_participation.txt" target="_blank" rel="noopener noreferrer">Participation Scores</a></td>
-	      <td class="buffer"><a href="2023Q1_league.txt" target="_blank" rel="noopener noreferrer">League Rankings</a></td>
+	      <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="standings/2023Q1_participation.txt" target="_blank" rel="noopener noreferrer">Participation Scores</a></td>
+	      <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="standings/2023Q1_league.txt" target="_blank" rel="noopener noreferrer">League Rankings</a></td>
+	      <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="standings/2023Q1_public-browser-ICE-rankings.txt" target="_blank" rel="noopener noreferrer">ICE Ranking Points</a></td>
+	    </tr>
+	    <tr>
+	      <td class="buffer">2022 Q1:</td>
+	      <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="standings/2022Q1_participation.txt" target="_blank" rel="noopener noreferrer">Participation Scores</a></td>
+	      <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="standings/2022Q1_league.txt" target="_blank" rel="noopener noreferrer">League Rankings</a></td>
+	      <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="standings/2022Q1_public-browser-ICE-rankings.txt" target="_blank" rel="noopener noreferrer">ICE Ranking Points</a></td>
 	    </tr>
 	  </table>
 	</center>
-	The Council of Meduseld tracks the games of public sanctioned events as well as player-submitted games.  Submitted games may be any deemed to sufficiently follow ICE play rules, as determined by the CoM.  (DC games are not tracked at this time.)  CoM offers a Participation Score, a Participation Penalty Fraction, and a League Ranking.  All contributions decay over time, and players are encouraged to contribute 3 games a year to stay ranked.<br>
 	<br>
-	<b>To submit a game outside of a sanctioned event:</b> Both players should message Council of Meduseld#7997 via Discord prior to the start of the game, including who their opponent is and a summary of the game format.  Upon completion, both players should then submit the game results to Council of Meduseld#7997.<br>
+	The Council of Meduseld tracks the games of public sanctioned events as well as player-submitted games.  Submitted games may be any deemed to sufficiently follow ICE play rules, as determined by the CoM.  (DC games are not tracked at this time.)  CoM offers a Participation Score, a Participation Penalty Fraction, and a League Ranking.  All contributions decay over time, and players are encouraged to contribute at least 3 games against different opponents a year to stay ranked.  (It is a Mark of Honor for active community members to issue or accept one challenge per quarter with someone within a quarter of their rank.)<br>
 	<br>
-	Participation contributions are larger for playing games in larger events.  Penalties may be applied for dropping a game or an event.<br>
+	<b>To submit a game outside of a sanctioned event:</b> Both players should message <code class="name">Council of Meduseld#7997</code> via Discord prior to the start of the game.  The message should include who the opponent is and a summary of the game format---agreed upon deck restrictions such as constructed or sealed, alignment restrictions, and whether players bring two decks for different opposing alignments ("General Opponent").  Upon completion, both players should then submit the game results to <code class="name">Council of Meduseld#7997</code>.<br>
 	<br>
-	League ranks attempt to separate performance from participation, and are based on a generalization of SpringRank using Tournament Points for games actually played---missed matches don't count.  Ranks are thus in the context of the distribution of formats played, which likely differs for each player, and so should be taken lightly!  This is particularly true for players getting terrible sealed collections.  Players with few games are noted; their ranks are especially unconstrained.  Precise ranks are not distributed for the low 1/4 of ranked players.
+	<i>Participation</i> contributions are larger for playing games in larger events.  Penalties may be applied for dropping a game or an event.<br>
+	<br>
+	<i>League ranks</i> attempt to separate performance from participation.  They are based on scoring players so that the difference in scores between pairs of players is roughly their historical Tournament Point difference for games actually played---missed matches don't count.  (It is related to a generalization of SpringRank.)  This means that ranks are in the context of the distribution of formats played, which likely differs for each player, and so should be taken lightly!  This is particularly true for players getting terrible sealed collections.<br>
+	<br>
+	Players with few games are noted; their ranks could change especially easily.  Precise ranks are not distinguished for the bottom 1/4 of ranked players.<br>
+	<br>
+	<i>ICE ranking points</i> are based on <a target="_blank" rel="noopener noreferrer" href="ICE-ranking-system.html">"Middle-earth CCG Official Ranking System by Chraig 'Ichabod' O'Brien, for I.C.E."</a>  It only includes online events with at least 6 players that use a Swiss or Round Robin pairing scheme, as per CoL Tournament Policy.  Without a regular yearly timeline, Ichabod's 0.2x (or 0x for negatives) multipliers per season is replaced with a "decayed" RP calculation.  After each tournament, the points of that tournament are added to the ranking points from after the previous tournament reduced by a fraction for each month that elapsed between.  The decay is currently based on a 3 year rather than 1 year timescale, so 0.2x (or 0.01x for negative sums) for every 36 months.<br>
+	<br>
+	Comparing the two technical rankings, CoM League focuses on relating players based on pairwise game performance while the ICE ranking system is based simply on rewarding high tournament placement.  One place this difference matters is, e.g., a player dropping out mid-tournament.  They are essentially lowest place in the tournament and would receive a large reduction in ICE rank, but CoM League simply counts the games they finished.  CoM League also rewards large TP leads, while the ICE ranking system does not differentiate between a large TP lead and going to third tiebreakers.
       </div>
 
-      <div id="musings" class="majornav" hidden>
+      <div id="counsel" class="majornav" hidden>
 	<center>
 	  <div style="max-width: 630px;">
 	    <!--
@@ -242,19 +271,36 @@
 	    --- "The Two Towers," J.R.R. Tolkien
 	  </div>
 	</center>
-	<h1 style="margin-top: 0;">Musings</h1>
-	<h3>Rules Precedence</h3>
-	CoM suggests a conservative approach to rules, where rulings more distant from ICE are given lower precedence, in the sense that they are only considered when there is ambiguity from higher precedent sources.
-	<ul>
+	<h1 style="margin-top: 0;">Counsel</h1>
+	Here are some recommendations for play.  As with all counsel, your choices are still yours to make.<br>
+	<br>
+	<table style="border-collapse: collapse; border: 1px black solid;">
+	  <tr>
+	    <th style="border: 1px black solid; padding: 10px;"><a href="#Precedence">Rules Precedence</a></th>
+	    <th style="border: 1px black solid; padding: 10px;"><a href="#Scoring">Scoring</a></th>
+	  </tr>
+	</table>
+	<h3><a id="Precedence">Rules Precedence</a></h3>
+	CoM recommends the following Conservative approach to rules, where rulings more distant from ICE are given lower precedence, in the sense that they are only considered when there is ambiguity from higher precedent sources.
+	<ol>
 	  <li>Event-specific rules (typically including CoL Tournament Rules v3).
 	  <li>ICE NetRep errata from the official CRF 15 (unofficial versions were widely propagated).
 	  <li>ICE rulebooks and published clarifications, from last to first.  The Rules Summary from MEBA is neither rulebook nor rules clarification, as it is considered to be necessary to simplify material for a complete rules summary.
 	  <li>ICE NetRep rulings, from last to first.
-	  <li>CoE Rulings, from last to first.
-	</ul>
-
-	<h3>Scoring</h3>
-	CoM currently suggests the trial of the following Tournament Point system in place of the the Council of Lorien system.  This system is roughly 1.5x TP of the CoL, and is designed to slightly elevate the importance of winning over the CoL MP gaps, as well as reduce Swiss pairing skill variance from early concessions and One Ring losses.
+	  <li>CoE rulings, from last to first.
+	</ol>
+	<br>
+	CoM also recognizes (but does not recommend) the following Aggressive approach to rules precedence:
+	<ol>
+	  <li>Event-specific rules (typically including CoL Tournament Rules v3).
+	  <li>CoE rulings, from last to first.
+	  <li>ICE rulebooks, NetRep rulings, errata, from last to first.
+	</ol>
+	<br>
+	CoM highly <b>discourages</b> rule-by-intimidation, including the traditional approaches of precedent given to those that talk the most or the loudest, or those citing past tournament records.<br>
+	<hr>
+	<h3><a id="Scoring">Scoring</a></h3>
+	CoM suggests the trial of the following Tournament Point system in place of the the Council of Lorien system.  This system is roughly 1.5x TP of the CoL, and is designed to slightly elevate the importance of winning over the CoL MP gaps, as well as reduce Swiss pairing skill variance from early concessions and One Ring losses.
 	<ul>
 	  <li>A One Ring win is 10 TP.
 	  <li>A Marshalling Point win more than 2x+10 over opponent is 9 TP.
@@ -284,18 +330,22 @@
 	<h1 style="margin-top: 0;">Resources</h1>
 	<h3>Tutorials</h3>
 	<ul>
-	  <li>Theo's MECCG tutorials <i>(---coming 2023---)</i>
-	  <li>Bergil's <a href="https://www.youtube.com/playlist?list=PLpoS1fkJJYLYlKG1ukfbKfKRrqxuLp8jI">cardnum tutorials</a>
-	  <li>Phil's <a href="https://www.youtube.com/playlist?list=PLMSFFxDIh4BwyGZy5POGhMgZ8Gq_XoXbx">Sit down and play tutorials</a>
+	  <li>Bergil's <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/playlist?list=PLpoS1fkJJYLYlKG1ukfbKfKRrqxuLp8jI">cardnum tutorials</a>
+	  <li>Phil's <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/playlist?list=PLMSFFxDIh4BwyGZy5POGhMgZ8Gq_XoXbx">Sit down and play tutorials</a>
+	</ul>
+	<h3>Musings</h3>
+	<ul>
+	  <li>Theo's MECCG theory corner <i>(---aiming for late 2023---)</i>
+	  <li>CDavis7M <a target="_blank" rel="noopener noreferrer" href="musings/CDavis7M_Advice.txt">Advice on Initial Purchases</a>
 	</ul>
 	<h3>Collection Generator</h3>
 	<ul>
-	  <li>Theo's <a href="MECCG-Collection-Generator.html">MECCG Collection Generator</a>
+	  <li>Theo's <a target="_blank" rel="noopener noreferrer" href="MECCG-Collection-Generator.html">MECCG Collection Generator</a>
 	</ul>
 	<h3>Game Recordings</h3>
 	<ul>
-	  <li><a href="https://youtube.com/@theonis_meccg/videos">Theo's</a>
-	  <li><a href="https://youtube.com/@spencercarney5580/videos">Bergil's</a>
+	  <li><a target="_blank" rel="noopener noreferrer" href="https://youtube.com/@theonis_meccg/videos">Theo's</a>
+	  <li><a target="_blank" rel="noopener noreferrer" href="https://youtube.com/@spencercarney5580/videos">Bergil's</a>
 	</ul>
       </div>
 
@@ -308,9 +358,10 @@
 	</center>
 	<h1 style="margin-top: 0;">Community</h1>
 	<ul>
-	  <li>Discord chat: <a href="https://discord.gg/EFqBJmT">https://discord.gg/EFqBJmT</a>
-          <li>cardnum play platform: <a href="http://70.180.210.3:1042/">http://70.180.210.3:1042/</a>
-	  <li>Sit down and play platform: <a href="https://meccg.herokuapp.com/deckbuilder">https://meccg.herokuapp.com/deckbuilder</a>
+	  <li>Discord chat: <a target="_blank" rel="noopener noreferrer" href="https://discord.gg/EFqBJmT">https://discord.gg/EFqBJmT</a>
+          <li>cardnum play platform: <a target="_blank" rel="noopener noreferrer" href="http://70.180.210.3:1042/">http://70.180.210.3:1042/</a>
+	  <li>Sit down and play platform: <a target="_blank" rel="noopener noreferrer" href="https://meccg.herokuapp.com/deckbuilder">https://meccg.herokuapp.com/deckbuilder</a>
+	  <li>Council of Elrond forums: <a target="_blank" rel="noopener noreferrer" href="https://councilofelrond.org/forum">https://councilofelrond.org/forum</a>
 	</ul>
       </div>
 
@@ -321,21 +372,28 @@
 	    --- <i>Gandalf</i>, "The Two Towers," J.R.R. Tolkien
 	  </div>
 	</center>
+	<hr>
+	The Council of Meduseld aims to bring the community together as a hub for communicating events and play results, and empowering strategy theoreticians and event organizers to handle their own affairs with feedback from those working on similar projects.  In that spirit, CoM more resembles an arts council---indeed, according to wikipedia (accessed 2023-3-8), arts councils "often operate at arms-length from the government to prevent political interference in their decisions."  It is not meant to be the best fit for everyone, but a more anocraticly-supportive alternative to CoE as it has historically presented.<br>
 	<h2>The Tenets of the Council of Meduseld</h2>
 	<ul>
-	  <li>We believe groups of players should play how they want.
+	  <li>We believe groups of players should play how they want, and not be bullied into conformity for others' sake.
 	  <li>We organize and assist with events as prime opportunities for players to engage in larger communities for collaborative enjoyment.
-	  <li>We expect that prior to an event, event coordinators will determine and communicate how rules disputes will be adjudicated, to the extent feasible.  We expect informed players to decline events that will likely disallow them from playing how they want.
+	  <li>We serve the community as librarians and analysts of game result data.
+	  <li>We expect that prior to an event, event organizers will determine and communicate how rules disputes will be adjudicated, to the extent feasible.  We expect informed players to decline events that will likely disallow them from playing how they want.
 	  <li>We value the legitimacy of the rules texts and cards of ICE, the game's designers, in all of their complexity.
 	</ul>
 
 	<h2>Why Meduseld?</h2>
-	In The Lord of the Rings, Meduseld is the home and mead hall of the house of Eorl, the leaders of the Rohirrim, a place of social gathering, warplanning, and award conferrence.  The Rohirrim are the most central non-Dunedain men of the novels, and Meduseld is the site of the first instance of Gandalf at work that readers get after his return, restoring the strength and will of Theoden King and urging him to commit to battle.  The site is also relatively new, not smothered in history from previous Ages of the world.
+	In The Lord of the Rings, Meduseld is the home and mead hall of the house of Eorl, the leaders of the Rohirrim, a place of social gathering, warplanning, and award conferrence.  The Rohirrim are the most central non-Dunedain men of the novels, and Meduseld is the setting of the first instance of Gandalf at work that readers receive after his return, restoring the strength and will of Theoden King and urging him to commit to battle.  We similarly urge old and new players to join in the community.  The world need not be dark!<br>
+	<br>
+	Additionally, compared to much of Tolkien's other rich storytelling, Meduseld is relatively new, not smothered in history from previous Ages of the world.  Let us take a fresh perspective on how we can coordinate with each other in enjoying some great games.
 
 	<h2>History</h2>
 	The Middle Earth Collectable Card Game was created by Iron Crown Enterprises (ICE) between 1995 and 1998, at which point they lost their license to sell Middle Earth products.  ICE had been publishing role-playing game manuals for several decades, and perhaps as a consequence the CCG they made offers richer game storytelling and strategy---at the cost of rule complexity---than essentially every other CCG I've seen.  The community has persisted through the years, likely because of these achievements.<br>
 	<br>
-	With the release of the free, browser-based play platform <b>cardnum</b> in August 2018, the community realized a new potential for diverse participation.  This presented new opportunities to overcome the age-old mindsets for organizing events and handling rules disputes.  The first cardnum tournament was held two years later at the same time that the Coronavirus pandemic pushed more play online.  Council of Meduseld was long pondered by prominant community member Theo, and officially announced in 2023 to help organize community events.  CoM is not meant to be the best fit for everyone, but a more anocratic alternative to CoE, empowering individual organizers to handle their own affairs with feedback from other organizers.<br>
+	With the release of the free, browser-based play platform <b>cardnum</b> in August 2018, the community realized a new potential for diverse participation.  This presented new opportunities to overcome the age-old mindsets for organizing events and handling rules disputes.  The first cardnum tournament was held two years later, when the Coronavirus pandemic brought more play online.  The idea of Council of Meduseld began to take shape in the mind of prominant community member Theo around the start of 2020, and initially released at the start of 2023.<br>
+	<br>
+	This site has been initially populated with the contributions of a few, but we hope to involve more contributors over time.  Contact us with ideas!<br>
 	<br>
 	I, Theo, am many things, but one thing that I am not is a very practiced website developer.  If you would like to offer suggestions or code, I am as growth-minded as my time allows.
       </div>

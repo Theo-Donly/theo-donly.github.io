@@ -1,0 +1,506 @@
+Highlander Return of the King deck
+
+Here is my Highlander deck, and some considerations that led to its construction
+-
+#####
+Brief deck description.
+
+The premise to the construction of this deck is that not knowing yet enough about minions and FW I stuck with a hero alignment and therefore I wanted to maximise the number of events I could play across all different character classes. At the same time, I leaned towards a Return of the King deck due to the appealing potential of scoring 8 Misc points and 2 Item points in one turn by playing tree different cards, namely Return of the King, The White Tree and the Palantir of Minas Tirith. Having made the choice to commit to Aragorn II, I therefore needed both a multi-tasking company and a lot of free GI to avoid being called back home to Bree right from the start. Hence the choice of Arinmir as Sage/Diplomat capable of controlling one the Elven Ranger/Warrior twins and of Robin as a hobbit scout that I could control with Aragorn II, himself a Warrior, Ranger and a Scout. The rest is pretty standard on the resource side, but aware that this initial company would be slow to collect MPs and set up the final Minas Tirith blow, I needed also a fast and yet flexible hazard side with easy siideboard access. This is why I chose to run 9 Nazguls and plenty of other easily playable hazards. The only combinations that I built in this hazard side was the Enchanted Stream + River combo and the Rumors of Wealth + Smaug. More about my reasoning behind this deck in the comments to the actual deck list below.
+-
+##### Pool (7 characters and 2 minor items)
+
+# Ideal
+
+1 Aragorn II (TW)
+ 1 Robin Smallburrow (TW)
+ 1 Healing Herbs (TW)
+1 Arinmîr (TW)
+ 1 Elf-stone (TW)
+ 1 Elrohir (TW)
+
+# In case of bouncing, but still going in deck
+
+1 Thranduil (TW)
+1 Folco Boffin (DM)
+1 Elladan (TW)
+-
+##### Characters (6)
+
+2 Pallando [H] (TW)
+1 Radagast [H] (TW)
+1 Círdan (TW)
+1 Éomer (TW) -> to pick up in Edoras with the Riders
+1 Ioreth (TD) -> useful backup sage, in Minas Tirith for the Tree
+-
+##### Resources (31)
+
+# MPs [3 Allies, 11(14) Items, 6 Faction]
+
+1 Quickbeam (TW) -> fighting
+1 Goldberry (TW) -> vs roadblock / cancel
+1 Riders of Rohan (TW)
+1 Rangers of the North (TW)
+1 Orcrist (TW)   -> greater item / fighting
+1 Glamdring (TW) -> major item / fighting
+1 Torque of Hues (TW) -> major item / cancel
+3 Sapling of the White Tree (TW) -> for White Tree
+
+# Events
+
+1 A Friend or Three (TW) -> corruption or influence
+
+1 New Friendship (TW) ->  diplomat / corruption or influence
+1 Flatter a Foe (TD) -> diplomat / cancel
+2 Marvels Told (TD) -> sage / remove hazard long or perm event
+
+1 Halfling Stealth (TW) -> hobbit / cancel
+1 Halfling Strength (TW) -> hobbit / heal or untap
+1 No Waiting to Wonder (DM) -> hobbit / fight
+1 Burglary (TD) -> scout / hobbit
+
+1 Concealment (TW) -> scout / cancel
+1 Dark Quarrels (TW) -> cancel
+1 Many Turns and Doublings (TD) -> cancel or haz. reduction with GoM
+1 Forewarned is Forearmed (DM) -> against Assassins
+
+1 Block (TW) -> warrior / fighting
+1 Risky Blow (TW) -> warrior / fighting
+1 Lucky Strike (TW) -> warrior / fighting
+1 Muster (TW) -> warrior / factions
+
+1 Smoke Rings (DM) -> recycling sideboarding 1
+1 Longbottom Leaf (BA) -> sideboarding 2
+
+1 Twilight (TW)
+1 Gates of Morning (TW)
+-
+##### Hazards (31)
+
+# Agents (1)
+
+1 Baduila (DM) -> a must
+
+# Creatures (6)
+
+1 Sellswords Between Charters (LE) -> Shadow / Border holds
+1 Rain-drake (TD) -> Coastal, plenty more in the sideboard, can hit also Ruins
+1 Cave-drake (TW) -> chooses on Wilderness / Ruins
+1 Ambusher (TW) -> chooses but more civilised
+1 Assassin (TW) -> same
+1 Smaug (TW) -> with Rumor of Wealth
+
+# Creature/Permanent or short-event (10) -> mostly for sideboarding recycling
+
+1 Adûnaphel (TW)
+1 Akhôrahil (TW)
+1 Dwar of Waw (TW)
+1 Hoarmûrath of Dír (TW)
+1 Indûr Dawndeath (TW)
+1 Khamûl the Easterling (TW)
+1 Ren the Unclean (TW)
+1 Witch-king of Angmar (TW)
+1 Ûvatha the Horseman (TW)
+1 Mouth of Sauron (TW)
+
+# Events
+
+1 Bairanax Ahunt (TD) -> to hit Anduin Vale (and the 12 creatures limit)
+3 River (TW) -> in tandem with Enchanted Stream
+2 Enchanted Stream (AS) -> in tandem with River
+1 Morgul-horse (TW) -> to get back a Nazgul, or play on shadow lands
+1 Fell Beast (TW) -> mostly to play Nazguls on shadow lands
+1 Power Built by Waiting (AS) -> always good and playable
+1 Lure of Expedience (TW) -> same
+1 Foolish Words (LE) -> same
+1 An Unexpected Outpost (DM) -> same
+1 Long Dark Reach (DM) -> to play Nazguls, Smaug (or Cave-Drake) and hit Wilderness
+1 Rumor of Wealth (TD) -> to play Smaug (or Cave-Drake)
+-
+##### Sideboard (30)
+
+## Resources
+
+# Key resource cards to sideboard (8 Misc MPs, 2/3 Faction)
+
+1 The White Tree (TW)
+1 Return of the King (TW)
+1 Elves of Lindon (TW) <- if I get Pallando / Cirdan
+1 Eyes of Mandos (DM) <- if I get Pallando
+1 Wood-elves (TW) <- if Aragorn bounces and I use Thranduil instead
+
+# Nice extras to sideboard (2 Item MPs, 2 Misc)
+
+1 Palantír of Minas Tirith [H] (TW)
+1 To Fealty Sworn (BA)
+1 No Strangers at this Time (AS)
+
+# Additional MPs or defences in the sideboard
+
+1 Knights of Dol Amroth (TW)
+1 Sword of Gondolin (TW)
+1 A Chance Meeting (TW) <- in particular if I lose Robin
+1 Promptings of Wisdom (WH)
+1 Trickery (TD) <- extra scout cancel
+
+## Hazards
+
+# Pilfer Hobbits and Dwarves
+
+1 Drór (DM)
+1 Lobelia Sackville-Baggins (DM)
+1 Pilfer Anything Unwatched (AS)
+
+# If facing Coastal / Gondor decks
+
+1 Lost in Free-domains (TW)
+1 Lost at Sea (TW)
+1 Fell Turtle (TW)
+1 Eärcaraxë Ahunt (TD)
+1 Drowning Seas (TW)
+
+# For targeted and well-timed corruption
+
+1 Alone and Unadvised (AS)
+1 Greed (TW)
+1 The Balance of Things (TW)
+
+# Against minion - not enough admittedly
+
+1 Elves upon Errantry (LE)
+1 Sons of Kings (LE)
+
+# extra Ahunts
+
+1 Scorba Ahunt (TD)
+1 Smaug Ahunt (TD)
+
+# Other classics
+
+1 Muster Disperses (TW)
+1 Call of Home (TW)
+
+##### Sideboard against FW (10)
+
+1 Wrath of the West (LE)
+1 Inner Rot (WH)
+1 Cruel Claw Perceived (WH)
+1 Power Relinquished to Artifice (WH)
+1 Longing for the West (WH)
+1 Ire of the East (WH)
+1 Blind to the West (WH)
+1 Rebel-talk (LE)
+1 So You've Come Back (LE)
+1 Lure of Nature (TW)
+
+
+Game 1: a dramatic comeback and a tight win against Anastasios / Bilbo
+1st game notes
+
+======
+Initial comments and Character Draft
+
+Playing against Anastasios / Bilbo who used an Eriador deck with Tom Bombadil and Mistress Lobelia to pull out lots of allies and factions while building a second company in Rivendell around Radagast. His companies were quite beefy, with the likes of Glorfindel, Gimli and later Beorn and Celeborn. Annalena and Voteli were also there to help his companies with a bit of cancellation and Marvels Told. On his hazards side, Anastasios was playing men with Rank upon Rank.
+
+I got to play my starting company, with Aragorn controlling Robin carrying some healing herbs and Arinmir controlling Elladan with an elven star. Anastasios started a bit light in rangers, with only Voteli, as he could not play his own Elladan. As it turns out this will cost him some delays down the line, especially thanks to my 3 Rivers and 2 Enchanted Rivers. Unfortunately I have not kept a record of Anastasios movements so below I report mostly a summary of what happend on my turns. I just remember having caused him some delays and that I managed to attack him at the Blue Mountains Dwarf Hold and Bree with Dror and my Lobelia, where the latter came quite close to wounding his Radagast!
+
+Anyway, on Turn 1 I go first. In my opening hand I have Pallando and Orcrist. Not bad but I don't have anything to help my movement bar a Flatter a Foe (FaF). Getting that Orcrist is going to be risky... Still, after placing my Pallando at the Grey Havens and sideboarding for my Elves of Lindon I decide to move to Andrast after moving Elladan on GI so as to help Arinmir with FaF. After placiing down an Uvatha, Anastasios plays plays some Dunlending Riders. I respond with my FaF so I need an 8, but fail. So I take them on, confident that in the worst case scenario I've got some Healing Herbs and an Halfling Strength in my deck. But I wasn't counting on Anastasios dice, who rolls a 12 to send my Robin to the Hobbiton graveyard. Great start...
+
+Below is a more schematic summary.
+
+IInitial characters: 6 MPs
+
+
+=====
+Turn 1
+
+Aragorn & co move from Rivendell to The Stones, Robin dies. Pallando appears at the Grey Havens and stays. 5 MPs
+
+=====
+Turn 2
+
+Aragorn & co stay at The Stones. Men harrassment continues, so ended up not playing anything.Pallando stays, keeps sideboarding. 5 MPs
+
+=====
+Turn 3
+
+Aragorn & co stay at The Stones, Arinmir dies, but I finally play Orcrist. Cirdan joins Pallando. 11 MPs
+
+=====
+Turn 4
+
+Aragorn & Elladan move to bree. Ellandan gets assassinated. Aragorn muster Rangers of the North but he's now a lone ranger... Cirdan & Pallando move to Himring and get a Torque of Hues. 15 MPs
+
+=====
+Turn 5
+
+Both companies move and join at the Barrow Down, I play Glamdring. 17 MPs
+
+=====
+Turn 6
+
+Cirdan returns to Grey Havens with Glamdring to muster the Elves of Lindon but does not make it there untapped. Aragorn with Orcrist & Pallando with Torque move to Wellinghall but cannot play Quickbeam yet. 17 MPs
+
+=====
+Turn 7
+
+Elrohir joins Cirdan, who takes him under his DI. Aragorn & Pallando stay. Cirdan fails to sway away the Elves of Lindon (was greedy, could have waited to play Elrohir) but Pallando gets Quickbeam.  20 MPs
+
+=====
+Turn 8
+
+With the White Tree and Return on the King either at hand or in the few remaining cards in my deck, it's time to converge on Minas Tirith. For this Cirdan & Elrohir move to the Ruined Signal Tower, while Aragorn & Pallando go to Edoras. Elrohir gets a Sapling of the White Tree. Aragorn influences the Riders of Rohan. 24 MPs
+
+=====
+Turn 9
+
+Eomer joins Aragorn and Pallando, both companies move to Minas Tirith. Aragorn is king and the White Tree is planted. Deck is exhausted and I call. 32 MPs
+
+=====
+Council
+
+Final MPs after council = 33. I also had 2 kill points and Anastasios revealed Glamding for -1 MP. I scrape a 33 v 25 victory (4-2 TP) despite loosing 3 of my 4 starting characters.
+
+
+Game 2: an ugly massacre of Ioannis / Trotter companies
+2nd game notes  
+
+======
+Initial comments and Character Draft
+
+My second game is against Ioannis / Trotter who plays Hobbits.
+
+Aragorn and Strider bounce. I go for Thraunduil + Robin, Arinmir + Elrohir (6MPs, 7 free GI), Trotter plays Bilbo, Frodo and Sam (5MPs, 7 free GI). Trotter will go first.
+
+======
+Turn 1
+
+Trotter - Elladan comes down. Running quite low on 3 free GI. Bilbo stays behind everyone else goes to Bree. No Hazards, but I put down a Nazgul and sideboard for Lobelia. Nothing gets played at Bree.
+
+me - I move to Barrow Down after moving Ellandan to GI to make the best of my Flatter a Foe. As it turns out I will have no use for it as I got to face some Giant Spiders, which Thranduil & Elladan supported + No Wait to Wonder with Robin will face, scoring 1 Kill MP. Nothing to play there for now. Monstrousity on the table.
+
+7 to 6 for me
+
+======
+Turn 2
+
+Trotter - Moves main company to Old Forest, I have no hazards to play, but I place a Power Built By Waiting on the table. He plays Goldberrry
+
+me - I stay, he places Adunaphel on the table and I play Glamdring.
+
+9 to 7 MPs for me
+
+======
+Turn 3
+
+Trotter - Bilbo goes to Eagle's Eyre, Halflng Stealth an Ambusher but gets a River. The others go to back to Bree, Foolish words goes on Frodo, his diplomat. Still plays nothing in Bree.
+
+me - I move to the Isles of the Dead that Live, I conceal a Land Drake aimed at Arinmir with Robin, and I play a Sampling of the White tree.
+
+10 to 7 MPs for me
+
+======
+Turn 4
+
+Trotter - Frodo, Sam and Elladan move to Eagles's Eyre, get a Rain drake, which Frodo fails to Flatter a Foe but which gets cancelled by tapping Goldberry. Bairanax Ahunt comes down to hit them on Anduin Values by Sam Conceals. I tap my PBbW to play a river, which I then recharge Power on Bilbo M/H phase who stays at the Eagles's Eyre. Trotter decide to do nothing, opting to chooses to have a chance of playing also minor item next turn.
+
+me - I move to Himring after Marvels Told-ing his Adunaphel with Thranduil. Light Drake, Elrohir face one strike and gets splatted with some Dragon's blood but luckly is not wounded. Robin stealth the second strike. All good but I have nothing to play.
+
+10 to 7 MPs for me
+
+======
+Turn 5
+
+Trotter - fails to remove Foolish Words on Frodo, stays at Bree with everyone. I play Hoarmurath and sideboard for Pilfer. He plays Gwaihir + Sting
+
+me - Pallando comes, sideboards for Elves of Lindon and stay at Grey Havens. The others move to the stones hoping to draw some MPs. No hazard and after facing with my big boys I play a Torque of Hues on Robin. Bit of a waste for a greater item site but my company is not fairly robust. utt of waste but now company is good.
+
+12 to 9 MPs for me, but now he has two Allies and I have none. Also Golberry being already with Trotter's company my only hope at the moment is to draw my Quickbeam fairly soon.
+
+======
+Turn 6
+
+Trotter - Everyone goes back to Rivendell after Frodo taps and failing again to get rid of Foolish Words. I use the Mouth to hit this company again with Bairanax Ahunt, targeting Gwahir (one of his allies) and his rangers Sam and Elladan. Gwahir is fine after receiveing +2 support from Bilbo and Goldberry but I kill his Sam. Ellandan picks up Sting and after using Halfling strenth Ellandan manages to beat the strike with Bilbo's help.
+
+me - I play Cirdan and Pallando sideboards for the White Tree. Still no MPs in my hand so I move to Wellighall hoping to draw my Quickbeam. No luck but also Trotter seems to have troubles with this hazard side as he has no significant hazards to play either.
+
+15 to 8 MPs
+
+======
+Turn 7
+
+Trotter - His company now moves to Bree and I play my two Enchanted Stream on Ellandan, so one sticks. Then I tap my PBbW to finally play Sellswords between Charters, which Trotter cancels with Dark Quarrels. He plays nothing.
+
+me - Cirdan and Pallando stay and sideboards Wood-Elves. The others stay in Wellinghall where I manage to play my Quickbeam. No significant hazards.
+
+17 to 8 MPs
+
+======
+Turn 8
+
+Trotter - moves to Lossadairn Cairn with all characters tapped after tapping again Frodo who finally manages to remove Foolish Words. I play cave drake on Gwahir and Bilbo, who kill it after Golberry taps in support kills it (two rolls of 10). Play my Rumors of Wealth on guard just in case, as I have now Smaug in my hand, but no one enters and does any clever untapping.
+
+me - I move to Isengard, no significant hazard, I cancel with Many Turn & Doublings the auto-wolves attack and get another Sapling.
+
+18 to 9 MPs
+
+======
+Turn 9
+
+Trotter - Company stays at Lossadairn Cairn and I play Rumors of Wealth OG. He cancel the automatic attack with Frodo and his Star-glass and plays a Palantir of Annuminas on Bilbo. At this point Smaug shows up, attacks and kills BOTH Frodo and Bilbo (two body-check roll at 11 and 10). Looks like I won't be needing Lobelia to Pilfer anything after all... Ellandan picks up the Palantir and the Star-Glass and now looks very tempted to keep these and Sting all by himself. Either or both Goldberry or Gwahir are lost as well at this point. I don't remember for sure but, as I it happens, it won't matter. I'll count MPs has if both had been discarded from now on.
+
+me - I move to Bree with Pallando & Cirdan to try mustering the Rangers of the North whereas for the other is finally time to head to Minas Tirith. I play a Forwarned is Foreharmed expecting some Assassins to show up but somehow no signicant hazards materialise except for a Nazgul permanent-event. Cirdan fails to rally the Rangers but at least I get to discard one of my two Samplings to play the White Tree.
+
+22 to 5 (with -4 for loosing Frodo and Bilbo)
+
+======
+Turn 10
+
+Trotter - Gandalf finally arrives in Edhellond and taps to sideboard. Ellandan taps for the Enchanted Stream and moves back to Rivendell. I play Long Dark Rich and I get to attack him with Uvatha. Not ideal use for him but still worth a try. Ellandan beats it but do not kill it (phew!). Gandalf moves to Minas Tirith. I use a nazgul permanent-event already in play to sideboard Alone and Unadvised and drop an Assassin on Gandalf. Yes, only 1@11 but I'm nervous about Trotter having an And Forth He Hastened up his sleeve to untap and try to influence someone away. Even though I have 7 free GI he may have some other influence check modifiers. Gandalf opts to tap and kills my assassing for 2 MP.
+
+me - After storing the other sapling, my big company moves to Moria to play Orcrist but also to dare Gandalf to follow us. Cirdan & Pallando move back to Grey Havens to play the Elves of Lindon. A Cave drake on steroid with long summons attacks the company heading to Moria, which Robin cancels with the same concealment used earlier that I smoked back at some point before. No significan hazards on the others. In Moria I cancel the orcs with dark quarrels and play Orcrist, while Cirdan gets the Elves of Lindon.
+
+29 to 7 (3 really)
+
+======
+Turn 11
+
+Trotter - Ellandan stores the Palantir and Moves to Blue Mountains while Gandalf indeed moves to Moria. Alone and Stupid comes down on Ellandan and with 3cc5 (Sting and Star glass) he gets discarded. Gandalf get a River so he does nothing in the site phase.
+
+me - At this point I could go to Thranduil's hall and play the Wood-Elves plus To Fealty Sworn and No Strangers at This Town but I am still worried about some tricky plan Trotter may have with his Gandald and decide instetad to play it safe and move to Mount Gundabad for a sucker punch with the two Nazguls I have in may hand, having also exhausted my deck. The trip goes well, I do not enter and call the council
+
+29 to 6 (2 really)
+
+======
+Turn 12
+
+Trotter - Move Gandalf to Mount Gundabad. I play Khamul, Gandalf Sacrifice itself and beat the body check to get gets 5 MP!
+
+======
+Council
+
+Mobody fails their corruption checks, I double on Characters, Allies and Factions
+
+42 to 11 - 4 = 7 (6-0 TP)
+
+
+Game 3: getting my butt kicked by Theo (as usual)
+3rd game notes
+
+======
+Initial comments and Character Draft
+
+Third game is vs Theo / Theo, who played minion with two starting companies: Troll-Chief and Southerner Sly in Minas Morgul and Liut of Dol Guldur, Odacear Lagduz in Dol Guldur. As it will turn out, Theo will stay most of the time in Mordor with the former and moving up and down from the Sulfur Deep with the latter, adding more companies along the way and while giving me a hard time with corruption on the hazard side. As such there wasn't much that I was able to do against him but slow him down with my Enchanted River and Rivers, which actually worked well in addition to a few instances of Nazgul detainments. Anyway, without knowing all this I start by placing on the table my full starting company (Aragorn controlling Robin and Arinmir controlling Elrohir) and with a Concealment as my only resource in my opening hand...
+
+=====
+Turn 1
+
+Unfortunately I go first, so I  decide to move to Himring to keep it safe. Theo puts down a Daelomin at Home and an on-guard (OG). I play nothing but I use Longbottom Leaf to bring in Elves of Lindon and an extra Sword of Gondolin in my deck.
+
+Theo starts by playing Hoarmurath in Dol Guldur, sideboards and plays No More Nonsense and manages to have the Troll Chief controlling the Dunlending Spy. His other company goes down to Sulfur Deep, I detain Odocear with the Witch King, place foolish word and sideaboard some Elves upon Errandry with another Nazgul. He plays with Liquid Fire and Vile Fumes down there, so I'm hopeful that at some point he'll venture out to raid some civilized folks.
+
+=====
+Turn 2
+
+Radagast comes down. Not my first choice but at this stage I welcome his ability to draw me extra cards. So I'll move him to the Grey Havens just for thiis and in case my Elves of Lindon show up. The others go to the Barrow Downs to get a major item, if I draw it... Raddy goes first, I draw 5 cards and I get Orcrist (damn should have gone to The Stones...) and Cirdan (which is OK). Theo plays Uvatha and Adunaphel, who I Marvel Told with Arinmir. The other company only see an Agent coming down (presumably Bad-uila) and that's it. Can't really play much, my mistake not moving to the Stones, although had I drawn a major item playing it there would have also been somewhat of a waste.
+
+On his turn Theo increase his handsize to 10 with While the Yellow Face Sleeps. Odoeacer stays and I play an on-guard (OG), the Troll-Chief stay and I used the Mouth of Sauron to detain him again with the Which King (just in case he was thiinking of playing some faction or ally). The Dunlending Spay goes back to Sauron in Barad-Dur and I place both Adunaphel and Ren down. The Liut of Dol Guldur goes back up to Dol Guldur, I play an OG and Hoarmurath stays and Voice of Malice my Adunaphel.
+
+=====
+Turn 3
+
+Cirdan comes down at the Grey Havens, Marvel Told Daelomin at Home while Radddy sideabords a Trickery. They will stay while Aragorn & co will move to The Stones to fetch Orcrist. I run first Radagast and Cirdan, and bad luck I draw the Elves of Lindon when reconciling with both of them tapped. Theo "Mouths" back Daelomin at Home and places an OG on The Stones. I conceal the automatic attack even if I didn't have to, but "the deck must flow" as they say... Elrohir picks up Orcrist.
+
+Theo's turn, lots of movement, I now see a good part of his game is about mining up and down from |Sulfur Deep. I manage to play another river on Cirth Gorgoroth, courtesy of the Dunlendind Spy moving there. Lots of OG and many cards to discard. At the end of his turn I got Elves of Lindon, Torque of Hues and a Sword of Gondolin plus both my Gates of Morning + Many Turn & Doubling and Flatter a Foe + New Friendship combos ready for defending myself next turn. So I'm good and I opt to discard the Sword so that I have good chances of getting that Torque of Hues. I also discard a Elladan as I really don't have enough GI to control him anyway.
+
+=====
+Turn 4
+
+Cirdan and Radagast stay. Aragorn & co will move to the Barrow Downs. Bane of the Ithil Stone comes down when Cirdan and Radagast move, as well as an OG. Earcaraxe Ahunt comes down and I try to Flatter Her with Arinmir + New Friendship. I should have moved Elrohir under GI as in previous games but forgot about it. Big mistake since even though I would only need a six to flatter Earcaraxe with I roll a 3. Theo assignes to Aragorn, Robin and Arinmir. Robin stealths it. Aragorn taps, Elrohir supports him so 7v15 and I roll a 9. Arinmir has no chance and is actually killed. Aragorns picks up the Elf Stone. Wild Trolls is next. Robin uses the Herbs to untap Elrohir so he can take one of the strikes. The other will go back to Robin, and he's wounded. Elrohir is 5v10 untapped and he's fine. Agent comes comes down with a Nobody's Friend. In the site phase I get the Elves of Lindon despite an OG Foolish Words. At the Barrow-Downs I cancel the undead automatic-attack with Many Turns and Doubling and opt to play a Sampling of the White Tree on Elrohir instead of my Torque as I need to stay down on corruption points.
+
+Theo makes a lot of local movements around Mordor, below or above below Dol Guldur. I don't remenber exactly but he brings in a faction. As it turned out it won't matter much. Let it be known, however, that at this point we're still head to head, 15 to 16 MPs for Theo I believe.
+
+=====
+Turn 5
+
+- Remember those posters that said, “Today is the first day of the rest of your life”? Well, that’s true of every day except one, the day you die. - This is how imagine the commetary to a movie shot showing Aragorn coming down from the Barrow Down on his way back to Bree...
+
+So yes, I've got the Rangers of the North in my hand so I'm heading to Bree with Aragorn, Elrohir and a limping Robin. I need Aragorn to stay untapped so I move Orcrist on him, after succeeding a corruption check at 3 for Elrohir, who is left with the Sapling while Robin takes the Elven Stone. Cirdan and Radagast will also move to the Old Forest to get Goldberry. I move Aragorn first. Hazard limit is three. An Assassin shows up, aiming at Elrohir who incredibily manages to survive unscathed, without scoring the 2 kill MPs. Next is a Cave-Drake, still on Elrohir and Aragorn. I see where Theo is going... wanting Aragorn to pick up the Sapling if Elrohir is killed. Elrohir is 4v10 and ties while Aragorn manages to stay defeat the 2nd strike, courtesy of a Lucky Strike. Last hazard, Lure of Nature on Aragorn. A classic. I have two corruption-checks at 4 that can't be helped with... and I roll a snake-eye! This actually eliminates Aragorn for -6 character MP and I lose my Orcrist for another 4MP loss. Sad. I don't think I can recover for this so I'll just finish this turn and concede. Cirdan and Radagast move and get an Ice Drake as they move out to the Elven Shores (yes I wanted to travel by Sea), which kills my Cirdan (another -6MP) and wounds my Radagast.
+
+So basically that's a -3 to 16 for Theo. (0 - 6 TP)
+
+
+Game 4: Mark's minions gets FUBAR 🙂 (no offence meant)
+4th game notes
+
+======
+Initial comments and Character Draft
+
+Fourth game is against Mark/FUBAR who also play as a minion and, judging from his Wispers of Rings. As it will turn out his strategy was to Call Home my characters in order to then play rings with Black Rain (with which I'm told he pulled out the One Ring in a previous round). I got to play my standard company with Aragorn controlling Robin with some Healing Herbs and Arinmir controlling Erlohir with an Elf-Stone, for a starting 6MPs and 7 free GI.
+
+=====
+Turn 1
+
+I go first, got no MPs in my hand but Ioreth joins and stay in Rivendell. I travel to the Barrow Down but nothing useful shows up in my hand. FUBAR plays an Unexpected Outpost and an On-Guard (OG). 6MP
+
+Fubar puts a ring on Wispers and moves to Gondmaeglon. He has only one ranger in his main company, so my Enchanted River + River combo mean he's done for this turn..
+
+=====
+Turn 2
+
+Still no MPs. I go to the Ruined Signal Tower to draw two but no luck again. Luckily FUBAR plays again an Unexpected Outpost and an OG. 6MP
+
+FUBAR puts another ring on Wispers and stays to Gondmaeglon. I attack with a Cave Drake his sage and ranger but end up conceding a point. FUBAR plays the Grey Mountains Orcs.
+
+=====
+Turn 3
+
+Finally I have something to do. I move to Edoras to play the Riders of Rohan and move Robin out to GI to free Aragorn's DI. FUBAR plays a Rebel Talk and an OG. Aragorn gets the Riders of Rohan. 9MP
+
+FUBAR plays Hoarmurath and While the Yellow Face Sleep to increase his handsize to 10. He moves his company to Buhr Widu and I hit them from Bairanax Ahunt hit them as they move out of the Grey Mountain Narrow to Buhr Widu. I wound a bunch of his guys but no kill.  This includes his only ranger so I place another river down and he's done also for this turn.
+
+=====
+Turn 4
+
+Pallando appears at the Grey Havens. I move Aragorn and his company to The Stones to play Orcrist. Earcaraxe Ahunt comes down but I Conceal it with Robin. At this point I think also a Shut Yer Mouth came down on Arinmir. FUBAR plays also a Cruel Claw Perceived on Pallando and an OGs. Orcrist comes down. 13 MP
+
+Since all characters are wounded in his company but the Liutenant of Dol Guldur are wounded, FUBAR moves it back to Dol Guldur. I play a Lure of Expedience on his Liuetenant and play and use a Nazgul to sideaboard a Smaug Ahunt as I reason FUBAR will venture again the dragon country. Possibly my agent Baduila came down this turn.
+
+=====
+Turn 5
+
+Thranduil comes down in Grey Haves and together with Pallando they will go to Bree to play the Rangers of the North. Aragorn & co moves back to Barrow Down to get Sapling of the White Tree. They go first, FUBAR play the Mouth of Sauron to get Earcaraxe Ahunt back. Somehow only Robin gets wounded but a subsequent Cave Drake finishes Robin off. They won't be able to enter at the Barrow Downs. Meanwhile Thranduil gets a Diminih and Depart on his way to Bree with Pallando, meaning he'll have to go next turn. Still, Thraunduil manages to muster the Rangers of the Northe. 18 MPs
+
+FUBAR heals at Dol Guldur and moves back his main company to Buhr Widu with only the Lieutenant untapped. I don't remember what I played but his company did not enter the site. Still, for sure I must have moved Baduila to a site in Anduin Vales at this point.
+
+=====
+Turn 6
+
+Thranduil leaves the game and Shut Yer Mouth sticks on Arinmir. Aragorn, Elrohir and Arinmir stay at the Barrow Downs. FUBAR tries to Call of Home on Elrohir twice but he stays. Pallando goes back alone to Grey Havens and makes it safely there. I play a Sapling at the Barrow downs. 16 MPs.
+
+FUBAR's main company stays at Buhr Widu and I play Rumors of Wealth OG, hoping to play my Smaug. A new company made of Gorbag and Odoacer moves to Dale. Smaug Ahunt comes down on them and Wounds everyone. At Buhr Widu, FUBAR plays a Black Rain trying to spot a character in my hand to play a ring but that fails, so he also plays a High Helm there. That attracts Smaug who wounds the Liutenant and Doerth. Another orc back at Dol Guldur gets a Two-Headed Troll. So far I rolled 8 body checks and neither wounded nor discarded a single character... 14 MPs
+
+=====
+Turn 7
+
+At the Grey Havens Pallando plays Eyes of Mandos, which gets me the Elves of Lindon but not my Cirdan. Pallando will stay while Aragorn et al. will now move to the Old Forest to get. Arinmir KILLS a Slayer (for 2MPs) on their way by rolling a 10, courtesy of Forewarned is Foreharmed on the table. I get Goldberry and now we're tie on allies. 19MPs
+
+FUBAR wants to move back to Dol Guldur to heal, but Baduila gets in position and sends them back to Burh Widu. Gorbag & Odoacer from Dale also go back to but I play the Mouth to play Smaug again, but manage to kill only Odoacer (on my 10th body check), who is worthless in terms of MPs.
+
+=====
+Turn 8
+
+Aragorn's company now goes to Wellinghall for Quickbeam and Pallando stays to play the Elves of Lindon. FUBAR try to Assassin-ate Arinmir but Goldberry and Elrohir taps to cancel and I play Dark Quarrel for the third and last attack. I manage to play Quickbeam while Pallando brings in the Elves. 23 MPs
+
+From Dol Guldur Lagduf & Gorbag go back to Dale. I play Elves upon Errandry and Sellsword between Charters. This taps Lagduf and wounds Gorbag twice (now I'm up to 12 BCs for only 1 kill and no discard). The Lieutenant's company finaly manages to go back to Dol Guldur, facing no significant hazards.
+
+=====
+Turn 9
+
+Cirdan finally shows up at the Grey Haven and with Pallando they go to Himring for Glamdring. As for Aragorn, it is finally time to move to Minas Tirith. Arinmir finally gets rid of Shut Yer Mouth. I move Aragor's company first and Adunaphel comes down and taps Aragorn. A Thief tries to steal some stuff but gets flattered by Arinmir with a Friend of Three. Cirdan and Pallando sail smoothly to Himring. In Minas Tirith Aragorn is king, the White Tree is planted and Elrohir find the Palantir of Minas Tirith. The others in Himring enter thr site and play comfortably a Glamdring. 37MP, 14 in one turn. Having exhausted my deck I call.
+
+FUBAR now moves Radbug and Shagrat to Moria but two Nazguls detain and tap them while checking their passports for leaving Dol Goldur by Nazguls. In Dale, an Assassin comes down and kills Lagduf.
+
+=====
+Council
+
+Nobody fails corruption checks on my side. I don't recall exactly how, but FUBAR ends up with 12 MPs. So overall score 37 - 12 (6 - 0 TP) 

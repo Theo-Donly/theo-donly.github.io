@@ -1,0 +1,123 @@
+Tournament deck Hero, anti-hero hazard configuration.
+
+No, I didn't come up with a creative name for it. Also note, that I had several different "incarnations" around the same basic set of ideas, I tinkered with the deck between rounds and I had a different version with anti-minion hazards. This is the deck I took into round 4 though.
+
+Seed BC9AA4D848
+
+Pool:
+1 Erkenbrand (TW)
+1 Elven Cloak (TW)
+1 Boromir II (TW)
+1 Dagger of Westernesse (TW)
+1 Bofur (TW)
+1 Elrohir (TW)
+1 Gildor Inglorion (TW)
+1 Forlong (TW)
+1 Théoden (TW)
+1 Thranduil (TW)
+1 Celeborn (TW)
+
+Characters:
+1 Pallando [H] (TW)
+2 Alatar [H] (TW)
+
+Resources:
+1 Dodge (TW)
+1 Precious Gold Ring (TW)
+1 When I Know Anything (TD)
+2 Noble Steed (WH)
+1 Sword of Gondolin (TW)
+1 Knowledge of the Enemy (DM)
+2 Forewarned is Forearmed (DM)
+1 Dagger of Westernesse (TW)
+1 Healing Herbs (TW)
+1 Orcrist (TW)
+1 Ancient Stair (DM)
+1 Wood-elves (TW)
+2 Barrow-blade (DM)
+1 A Friend or Three (TW)
+1 Risky Blow (TW)
+1 Glamdring (TW)
+1 Ents of Fangorn (TW)
+1 Riders of Rohan (TW)
+1 The Great Eagles (TW)
+1 Fair Gold Ring (TW)
+1 Longbottom Leaf (BA)
+2 Fellowship (TW)
+1 Secret Passage (TW)
+1 Rebuild the Town (DM)
+2 Noldo-lantern (DM)
+
+Hazards:
+1 Hobgoblins (LE)
+1 Wargs (LE)
+2 River (TW)
+3 Twilight (TW)
+1 Awaken Minions (TW)
+1 Cave-drake (TW)
+1 Slayer (TW)
+1 Dunlending Raiders (TD)
+1 Tidings of Bold Spies (LE)
+1 Rebel-talk (LE)
+3 Lawless Men (LE)
+1 Whole Villages Roused (WH)
+1 Ûvatha the Horseman (TW)
+1 Cruel Caradhras (TD)
+1 FEAR! FIRE! FOES! (AS)
+1 Wild Trolls (LE)
+1 Shut Yer Mouth (LE)
+1 "Bert" - Bûrat (TW)
+1 Cave Worm (TD)
+1 Searching Eye (TD)
+1 Great Secrets Buried There (DM)
+1 Indûr Dawndeath (TW)
+2 Incite Denizens (TD)
+1 So You've Come Back (LE)
+Sideboard:
+Sideboard:
+1 Lesser Ring (TW)
+1 Far-sight (TW)
+1 No Escape from My Magic (TD)
+1 Test of Form (TW)
+1 Weariness of the Heart (TW)
+1 Troll-purse (DM)
+1 Enruned Shield (TD)
+1 Dwarven Hoard (TD)
+1 Magic Ring of Stealth (TW)
+2 Lure of Expedience (TW)
+1 No Strangers at this Time (AS)
+1 Robin Smallburrow (TW)
+1 Hauberk of Bright Mail (TW)
+1 Lapse of Will (TW)
+1 Wild Horses (WH)
+1 Power Relinquished to Artifice (WH)
+1 Adrazar (TW)
+1 Lure of the Senses (TW)
+1 The Way is Shut (DM)
+1 Dwarven Ring of Barin's Tribe [H] (TW)
+1 Tower Guard of Minas Tirith (TW)
+1 Wizard's Test (TW)
+1 Wizard Uncloaked (TD)
+1 Left Behind (TD)
+1 Rescue Prisoners (TW)
+1 Despair of the Heart (TW)
+1 Incite Denizens (TD)
+
+Specialized sideboard:1 Gandalf [H] (TW)
+1 Pallando [H] (TW)
+1 Will You Not Come Down? (WH)
+1 In the Grip of Ambition (WH)
+2 Foul Tooth Unsheathed (WH)
+1 Heart Grown Cold (WH)
+
+I dumped everyone into the pool in case I didn't get my starting picks, but that did not in fact occur: STarting party was inevitably Thranduil, Erkenbrand, Elrohir, Bofur, and Forlong the Fat.
+
+I got lucky with my seed, no two ways about it. I was worried, my normal deck constructions usually include a lot fewer points resources and a lot more support cards to make sure my characters are healthy enough to play them. This deck loaded up on items to compensate for not having the usual lineup of risky blows and blocks and lucky strikes that I usually run prowess resource strategies on. Still, with Orcrist, Glamdring, a sword of gondolin, and two potential barrow-blades to play, along with a lineup of some high prowess characters, I did a lot better than I expected. A quartet of three point factions (two of which I have characters with bonuses for) rounded out the points setup.
+
+I did have the idea of playing the rings on the first play through, sideboarding in my tests and the three rings I could play, and then using them on the second side of the deck. In practice, I got one lesser Ring for my troubles across 5 games. Too slow and clumsy, and the deck worked much faster than expected because I wasn't getting wounded nearly as fast as my fears suggested I would. In the future, I would probably scrap them and more directly include other things. The Noldo-lanterns also got played a lot more than I thought they would, and hiding in the under-deeps dodged a bunch of hazards, or so I'm guessing.
+
+Over on the hazard side, I'm less impressed. I thought to set up a couple of combos, Cruel Caradhras to tap and a cave worm to eat people going through the mountains. An awakened minions or incited denizens combined with Tidings of Bold Spies were at the forefront of my mind when designing this, but I never got to make either work (and I never got to play Cruel Caradhras at all). Still, there were enough beefy hazards to slow my opponents down, and the ringwraiths and the river are just powerful cards. I got more mileage out of Whole Fillages Roused and Fear Fire Foes than I expected. No wounds, of course, but those detainment attacks bought me a lot more time than I expected out of them. There's probably room for improvement there, more so than on the resource side, which is what definitely won me my games
+
+As for resource strategy, it was fairly straightforward. My go-to sites were The Stones and Dead Marshes for Orcrist, with Barrow Downs, Mt Gram, RUined Signal Tower, GLittering Caves for the majors, although if I drew the Noldo-Lanterns early I'd prioritize Mt Gram or Glittering Caves to take a dip down to the Under-Deeps for the lanterns and any other items I could grab. Amon Hen was where I usually went to play When I know Anything (and with all those items, I was concerned about corruption), since I could also play Barrow-Blade and the horses there.
+
+Once I had an ally or two and a wizard and another character in place, I would usually retire to Lorien to play a Fellowship or two. While I did split up on occasion for desperate times, I generally traveled as one large megaparty. On the other hand, given the number of points cards, maybe I would have done better breaking up into multiple smaller parties and trying to just drop down more items and factions.

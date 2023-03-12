@@ -1,0 +1,34 @@
+PARTICIPATION SCORE
+36	Theo2
+36	Shapeshifter
+32	sarma72
+32	GaerethBarethson
+32	Celith
+29	langloude
+25	CDavis7M
+24	aleaax
+24	Trotter
+21	Sulimo
+16	rezwits
+13	shadowandflame
+13	Vastor
+12	Nimrandir
+12	LordJesse
+12	Grishnakh
+12	Bergil
+12	Quixote
+9	Shark
+9	Ryan Roper
+9	J Montanus
+9	ForgeFrance
+9	Ernst Brun
+9	DamienX207
+6	G Giewon
+4	Lexicon
+2	buscouille
+2	dirhaval
+
+PENALTY FRACTION
+0.25	buscouille
+0.18	dirhaval
+0.12	G Giewon

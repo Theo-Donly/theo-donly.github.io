@@ -1,23 +1,23 @@
 LEAGUE RANK (* based on few matches)
 1	Theo2
 2	Shapeshifter
-3	FUBAR
-4	Adamj
-	Nimrandir
-	sarma72
-7	sfan77
-8	Celith
-	DamienX207
-10	GaerethBarethson
+3	Adamj
+	FUBAR
+5	sarma72
+6	Nimrandir
+7	Celith
+8	GaerethBarethson
+	sfan77
+10	DamienX207
 11	langloude
 12	*manadadeanimales
 13	*maxocub
 14	Moriquendi
-15	CDavis7M
-16	*sfakattack
-17	Bilbo
-18	*Saurn
-19	*gkg
+15	*sfakattack
+	*Saurn
+17	CDavis7M
+18	Bilbo
+	*gkg
 also ranked:
 	Bergil
 	*Lake Town Geezer
