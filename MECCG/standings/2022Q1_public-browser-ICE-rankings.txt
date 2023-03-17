@@ -1,30 +1,30 @@
-Through 2021-11		Decayed		Net
-player			RP Change	RP Change
+Through 2021-11		Decayed		No-Decay
+player			RP		RP
 =================================================
-Shapeshifter		40		51
-Celith			20		16
-Theo			17		25
-Gaereth Barethson	16		23
-Bergil			13		16
-Nimrandir		8		9
-CDavis7M		6		11
-langloude		4		-2
-DamienX207		4		6
-Shadowandflame		3		6
-Vastor			3		5
-Ernst Brun		1		2
-Grishnakh		0		0
-J Montanus		0		-2
-Lexicon			-1		-9
-dirhaval		-2		-12
-G Giewon		-2		-9
-ForgeFrance		-3		-12
-Ryan Roper		-3		-12
-Shark			-3		-12
-LordJesse		-6		-10
-buscouille		-7		-11
-rezwits			-7		-13
-sarma72			-8		-20
-aleaax			-8		-9
-Quixote			-12		-12
-Trotter			-12		-12
+Shapeshifter		540		551
+Celith			520		516
+Theo			517		525
+Gaereth Barethson	516		523
+Bergil			513		516
+Nimrandir		508		509
+CDavis7M		506		511
+langloude		504		498
+DamienX207		504		506
+Shadowandflame		503		506
+Vastor			503		505
+Ernst Brun		501		502
+Grishnakh		500		500
+J Montanus		500		498
+Lexicon			499		491
+dirhaval		498		488
+G Giewon		498		491
+ForgeFrance		497		488
+Ryan Roper		497		488
+Shark			497		488
+LordJesse		494		490
+buscouille		493		489
+rezwits			493		487
+sarma72			492		480
+aleaax			492		491
+Quixote			488		488
+Trotter			488		488

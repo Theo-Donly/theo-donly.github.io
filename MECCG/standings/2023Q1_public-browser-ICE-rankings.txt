@@ -1,38 +1,38 @@
-Through 2023-11		Decayed		Net
-player			RP Change	RP Change
+Through 2022-11		Decayed		No-Decay
+player			RP		RP
 =================================================
-Theo			56		71
-Shapeshifter		39		62
-Adamj			21		23
-Gaereth Barethson	14		25
-Nimrandir		9		13
-maxocub			7		8
-DamienX207		6		9
-Celith			4		6
-langloude		3		-1
-FUBAR			3		3
-sarma72			3		-16
-Shadowandflame		3		6
-Vastor			2		5
-Ernst Brun		1		2
-Grishnakh		0		0
-Moriquendi		0		0
-J Montanus		0		-2
-Bergil			0		5
-Lexicon			-1		-9
-dirhaval		-1		-12
-G Giewon		-1		-9
-ForgeFrance		-1		-12
-Ryan Roper		-1		-12
-Shark			-1		-12
-LordJesse		-2		-10
-buscouille		-3		-11
-aleaax			-3		-9
-rezwits			-3		-13
-Saurn118		-4		-5
-Quixote			-4		-12
-CDavis7M		-6		0
-kepler_euler		-8		-11
-Bilbo			-15		-18
-Sulimo			-17		-38
-Trotter			-27		-38
+Theo			556		571
+Shapeshifter		539		562
+Adamj			521		523
+Gaereth Barethson	514		525
+Nimrandir		509		513
+maxocub			507		508
+DamienX207		506		509
+Celith			504		506
+langloude		503		499
+FUBAR			503		503
+sarma72			503		484
+Shadowandflame		503		506
+Vastor			502		505
+Ernst Brun		501		502
+Grishnakh		500		500
+Moriquendi		500		500
+J Montanus		500		498
+Bergil			500		505
+Lexicon			499		491
+dirhaval		499		488
+G Giewon		499		491
+ForgeFrance		499		488
+Ryan Roper		499		488
+Shark			499		488
+LordJesse		498		490
+buscouille		497		489
+aleaax			497		491
+rezwits			497		487
+Saurn118		496		495
+Quixote			496		488
+CDavis7M		494		500
+kepler_euler		492		489
+Bilbo			485		482
+Sulimo			483		462
+Trotter			473		462
