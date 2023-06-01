@@ -15,7 +15,7 @@ function hashstr(a) {
     for (i = 0; i < a.length; ++i) {
 	char = a.charCodeAt(i);
 	hash = ((hash * 0x20)-hash)+char;
-        hash = (hash & 0xFFFFFFFF) + (hash / 0x100000000 & 0xFFFF) * 0x100000000;
+        hash = (hash & 0xFFFFFF) + (hash / 0x1000000 & 0xFFFFFF) * 0x1000000;
     }
     return hash;
 }
@@ -25,7 +25,7 @@ function weakRand48(seed) {
     let c = 0xB;
     // break up to avoid javascript overflow
     seed = (seed & 0xFFFFFF) * a + c + ((((seed / 0x1000000) & 0xFFFFFF) * a) & 0xFFFFFF) * 0x1000000;
-    seed = (seed & 0xFFFFFFFF) + (seed / 0x100000000 & 0xFFFF) * 0x100000000;
+    seed = (seed & 0xFFFFFF) + (seed / 0x1000000 & 0xFFFFFF) * 0x1000000;
     return seed;
 }
 
@@ -2058,6 +2058,7 @@ var CardCatalog = {
 'Wellinghall [M] (BA)':['meas_wellinghall','b1','M','S','F',],
 'The Wind Throne [M] (BA)':['mele_thewindthrone','b1','M','S','R',],
 };
+
 
 function removeSites(cardlist, setflag) {
     let ret = [];
