@@ -1777,7 +1777,7 @@
 var cardaligns = {"H":"hero","N":"neutral","M":"minion","D":"dual","F":"fallen","B":"balrog"};
 var cardtypes = {"C":"character","R":"resource","H":"hazard","S":"site","G":"region"};
 var cardtypevalues = {"C":0,"R":0,"H":0,"S":0,"G":0};
-function AccountForCardEntry(accountant,cardentry,reqmpg1,reports) {
+function AccountForCardEntry(accountant,cardentry,reqRmpg1,reports) {
     let firstspace = cardentry.indexOf(" ");
     // headers and empty lines will not have spaces
     if (firstspace == -1) {
@@ -1791,7 +1791,7 @@ function AccountForCardEntry(accountant,cardentry,reqmpg1,reports) {
         return;
     }
     let [htmlname,cardrarity,cardalign,cardtype,cardclass,cardmp] = CardCatalog[cardname];
-    if (reqmpg1 && ((typeof cardmp != "number") || cardmp <= 1)) {
+    if (reqRmpg1 && ((cardtype != "R") || (typeof cardmp != "number") || cardmp <= 1)) {
         return;
     }
     let key = cardname.slice(0,cardname.length-4)+"{"+cardaligns[cardalign]+", "+cardtypes[cardtype]+"}";
@@ -1814,18 +1814,18 @@ function Report() {
     let DeckCards = {};
     for (let deckpart of ["resources","hazards","sideboard",
                           "characters","pool","fallen"]) {
-        let reqmpg1 = sbmpg1 && (deckpart in sideboardness);
+        let reqRmpg1 = sbmpg1 && (deckpart in sideboardness);
         for (let cardentry of document.getElementById(deckpart).value.split("\n")) {
-            AccountForCardEntry(DeckCards,cardentry,reqmpg1,reports);
+            AccountForCardEntry(DeckCards,cardentry,reqRmpg1,reports);
         }
     }
     // load deck components for second deck
     let DeckCards1 = {};
     for (let deckpart of ["resources1","hazards1","sideboard1",
                           "characters1","pool1","fallen1"]) {
-        let reqmpg1 = sbmpg1 && (deckpart in sideboardness);
+        let reqRmpg1 = sbmpg1 && (deckpart in sideboardness);
         for (let cardentry of document.getElementById(deckpart).value.split("\n")) {
-            AccountForCardEntry(DeckCards1,cardentry,reqmpg1,reports);
+            AccountForCardEntry(DeckCards1,cardentry,reqRmpg1,reports);
         }
     }
     // tally cards in first deck
