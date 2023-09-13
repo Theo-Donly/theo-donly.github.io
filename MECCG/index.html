@@ -63,8 +63,22 @@
       document.getElementById("community").setAttribute("hidden","");
       document.getElementById("about").setAttribute("hidden","");
       */
-      document.getElementById(display).removeAttribute("hidden");
+      if (display == "") {
+        display = "welcome";
       }
+      let elem = document.getElementById(display);
+      if (elem == null) {
+        display = "welcome";
+        elem = document.getElementById(display);
+      }
+      elem.removeAttribute("hidden");
+      history.replaceState(undefined, undefined, "#"+display);
+      }
+
+      window.addEventListener("load", (event) => {
+        var hash = location.hash.substr(1);
+        switchDisplay(hash);
+      });
     </script>
   </head>
   
@@ -117,22 +131,28 @@
 	<h3>Upcoming events:</h3>
 	<table style="border-spacing:0px;">
 	  <tr>
-	    <th>Main Month</th>
+	    <th>Timing</th>
 	    <th>Event</th>
 	    <th>Organizer</th>
 	    <th>Details</th>
 	  </tr>
 	  <tr>
-	    <td class="buffer">June or July</td>
-	    <td class="buffer">All Expansion Sealed Collection</td>
-	    <td class="buffer">Theo</td>
-	    <td class="buffer">Sealed: cards from all expansions, incentives for playing multiple alignments, early round pairings based on alignment.
+	    <td class="buffer">2023-08</td>
+	    <td class="buffer">A Knife in the Dark</td>
+	    <td class="buffer">sarma72</td>
+	    <td class="buffer">Constructed METW-MEDM, starting hazard agent draft, agents can move to revealed sites but are discarded at end of turn.</td>
 	  </tr>
 	  <tr>
-	    <td class="buffer">Fall</td>
-	    <td class="buffer">General Opponent</td>
-	    <td class="buffer">Bergil</td>
+	    <td class="buffer">November and December</td>
+	    <td class="buffer">Hero World Cup</td>
+	    <td class="buffer">sarma72</td>
+	    <td class="buffer">Sealed Hero collections with group rounds followed by knockout rounds with progressive pack releases.</td>
+	  </tr>
+	  <tr>
+	    <td class="buffer">TBD, 2024?</td>
 	    <td class="buffer">The Moot of Meduseld.</td>
+	    <td class="buffer">Bergil</td>
+	    <td class="buffer">General Opponent</td>
 	  </tr>
 	</table>
 	<br>
@@ -144,6 +164,13 @@
 	    <th>Organizer</th>
 	    <th>Details</th>
 	    <th>Reviews</th>
+	  </tr>
+	  <tr>
+	    <td class="buffer">2023-07</td>
+	    <td class="buffer">All Expansion Sealed Collection</td>
+	    <td class="buffer">Theo</td>
+	    <td class="buffer">Sealed: cards from all expansions plus 1 avatar character per deck, Fallen decks only if covert-only (as Hero) or at least half Orc+Troll mind (as Minion), first round pairing based on alignment, TP incentives for playing sufficiently distinct decks.
+	    <td><a target="_blank" rel="noopener noreferrer" href="reviews/202307-AESC_Bilbo.txt">Bilbo (2)</a></td>
 	  </tr>
 	  <tr>
 	    <td class="buffer">2023-03</td>
@@ -232,6 +259,12 @@
 	<center>
 	  <table style="border-spacing:0px; border: 1px solid black;}">
 	    <tr>
+	      <td class="buffer">2023-08:</td>
+	      <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="standings/202308_participation.txt" target="_blank" rel="noopener noreferrer">Participation Scores</a></td>
+	      <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="standings/202308_league.txt" target="_blank" rel="noopener noreferrer">League Rankings</a></td>
+	      <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="standings/202308_public-browser-ICE-rankings.txt" target="_blank" rel="noopener noreferrer">ICE Ranking Points</a></td>
+	    </tr>
+	    <tr>
 	      <td class="buffer">2023 Q1:</td>
 	      <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="standings/2023Q1_participation.txt" target="_blank" rel="noopener noreferrer">Participation Scores</a></td>
 	      <td class="buffer"><a target="_blank" rel="noopener noreferrer" href="standings/2023Q1_league.txt" target="_blank" rel="noopener noreferrer">League Rankings</a></td>
@@ -257,7 +290,7 @@
 	<i>ICE ranking points</i> are based on <a target="_blank" rel="noopener noreferrer" href="ICE-ranking-system.html">"Middle-earth CCG Official Ranking System by Chraig 'Ichabod' O'Brien, for I.C.E."</a>  It only includes online events with at least 6 players that use a Swiss or Round Robin pairing scheme, as per CoL Tournament Policy.  Without a regular yearly timeline, Ichabod's 0.2x (or 0x for negatives) multipliers per season is replaced with a "decayed" RP calculation.  After each tournament, the points of that tournament are added to the ranking points from after the previous tournament reduced by a fraction for each month that elapsed between.  The decay is currently based on a 3 year rather than 1 year timescale, so 0.2x (or 0.01x for negative sums) for every 36 months.<br>
 	<br>
 	<div style="font-size:80%">
-	  Comparing the two technical rankings, CoM League focuses on relating players based on pairwise game performance while the ICE ranking system is based simply on rewarding high tournament placement.  Playing more frequently with similar performance acts as a ranking point difference multiplier for the ICE ranking system, but simply solidifies the existing ranks in the CoM League.  Another large difference is, e.g., players dropping out mid-tournament---they are essentially lowest place in the tournament and would receive a large reduction in ICE rank, but CoM League simply counts the games they finished.  CoM League also rewards large TP leads, while the ICE ranking system does not differentiate between a large TP lead and going to third tiebreakers.
+	  Comparing the two technical rankings, CoM League focuses on relating players based on pairwise game performance while the ICE ranking system is based simply on rewarding high tournament placement.  Playing more frequently with similar performance acts as a ranking point difference multiplier for the ICE ranking system, but simply solidifies the existing ranks in the CoM League.  Another large difference is, e.g., players dropping out mid-tournament---they are essentially lowest place in the tournament and would receive a large reduction in ICE rank, but CoM League only uses games actually played.  CoM League also rewards large TP leads, while the ICE ranking system does not differentiate between a large TP lead and going to third tiebreakers.
 	</div>
       </div>
 
