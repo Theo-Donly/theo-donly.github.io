@@ -1,0 +1,60 @@
+			Decayed		No-Decay
+player			RP		RP
+================================================
+Shapeshifter		528		571
+Theo2			526		565
+Sean S.			521		521
+CDavis7M		520		520
+gkg			518		521
+Bilbo			517		510
+Adamj			516		529
+Antonio F.		514		514
+Skye S.			510		510
+Gaereth Barethson	507		525
+Michael C.		505		505
+Nimrandir		505		513
+sfan77			504		505
+maxocub			504		508
+DamienX207		504		510
+Brett N.		503		503
+sarma72			503		484
+langloude		502		499
+Jonathan M.		502		502
+FUBAR			502		503
+Celith			501		506
+Beren C.		501		501
+Nate G.			501		501
+Grishnakh		500		500
+Bergil			500		505
+LordJesse		500		490
+buscouille		500		489
+aleaax			500		491
+Quixote			499		488
+Saurn118		499		495
+Ian S.			499		499
+Kaonee S.		499		499
+kepler_euler		498		489
+Sulimo			497		462
+Alex S.			496		496
+Ryan R.			493		481
+Kenneth H.		492		492
+Gene B.			490		490
+Michael W.		489		489
+Moriquendi		489		481
+Ben C.			487		487
+rezwits			487		474
+Trotter			486		449
+Lake Town Geezer	486		474
+Gene S.			485		485
+
+
+Tournament time and type:
+2023Oct	GO (World's semis)
+2023Jul	AESC
+2023Mar	Civilized Challenge
+2022Oct	Halfling
+2022Jul	AESC
+2021Nov	METD
+2021Jul	METW
+2020Nov	progressive sealed
+2020Aug	GO

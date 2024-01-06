@@ -1,0 +1,75 @@
+PARTICIPATION SCORE
+62	Theo
+62	CDavis7M
+58	Bergil
+57	sarma72
+57	Trotter
+56	Shapeshifter
+55	Adamj
+47	Moriquendi
+44	DamienX207
+42	Bilbo
+40	sfan77
+34	langloude
+31	Celith
+31	FUBAR
+26	Skye S.
+26	Sean S.
+26	Michael C.
+26	Antonio F.
+23	Ryan R.
+20	Nate G.
+20	Kenneth H.
+20	Kaonee S.
+20	Jonathan M.
+20	Ian S.
+20	Gene S.
+20	Gene B.
+20	Brett N.
+20	Beren C.
+20	Ben C.
+20	Alex S.
+20	GaerethBarethson
+19	Mercury321
+19	Smaug
+17	rezwits
+17	Lake Town Geezer
+14	Sulimo
+14	gkg
+14	hcanadian55
+13	Nimrandir
+11	Michael W.
+11	travmcgee83
+9	maxocub
+9	manadadeanimales
+8	aleaax
+7	Saurn
+6	baretico123
+4	shadowandflame
+4	Vastor
+4	LordJesse
+4	Grishnakh
+4	Quixote
+3	Shark
+3	J Montanus
+3	ForgeFrance
+3	Ernst Brun
+2	Edmure77
+2	G Giewon
+1	Lexicon
+1	buscouille
+1	dirhaval
+
+PENALTY FRACTION
+0.50	Edmure77
+0.25	buscouille
+0.25	baretico123
+0.18	dirhaval
+0.12	G Giewon
+0.10	Lake Town Geezer
+0.09	Saurn
+0.07	Michael W.
+0.05	rezwits
+0.05	gkg
+0.02	Celith
+0.02	langloude
