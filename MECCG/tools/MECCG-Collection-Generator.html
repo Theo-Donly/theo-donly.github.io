@@ -2215,6 +2215,17 @@ var TWPromoSheet = buildSheet("TW","P");
 var TW12MindAllySheet = [...TWRareSheetNoSites,...TWUncommonSheetNoSites];
 filterSheet(TW12MindAllySheet,[3,4],["R","A"],[5],[3]);
 
+var HeroCharacterSheet = Object.keys(CardCatalog);
+filterSheet(HeroCharacterSheet,[2,3],["H","C"],[4],["A"]);
+var HeroFixedCharacterSheet = [...HeroCharacterSheet];
+filterSheet(HeroFixedCharacterSheet,[1],"F");
+var HeroRareCharacterSheet = [...HeroCharacterSheet];
+filterSheet(HeroRareCharacterSheet,[1],"R");
+var HeroUncommonCharacterSheet = [...HeroCharacterSheet];
+filterSheet(HeroUncommonCharacterSheet,[1],"U");
+var HeroCommonCharacterSheet = [...HeroCharacterSheet];
+filterSheet(HeroCommonCharacterSheet,[1],"C");
+
 var TWRareCharacterSheet = [...TWRareSheetNoSites];
 filterSheet(TWRareCharacterSheet,[3],["C"]);
 var TWUncommonCharacterSheet = [...TWUncommonSheetNoSites];
@@ -2807,6 +2818,22 @@ for (let i = 0; i < parseInt(document.getElementById("BOS").value); i++) {
     pickFromPriority(priority,parseInt(document.getElementById("BOC").value));
 }
 
+
+// Hero characters
+seed = weakRand48(hashstr(document.getElementById("seed").value + "Hc"));
+if (document.getElementById("Hcf").value > 0 || document.getElementById("Hcr").value > 0 || document.getElementById("Hcu").value > 0 || document.getElementById("Hcc").value > 0) {
+    Preview.push("<h1 class=\"pack\"><b>Hero Characters</b></h1>");
+    for (let [elemid,sheet] of [["Hcf",HeroFixedCharacterSheet],
+                                ["Hcr",HeroRareCharacterSheet],
+                                ["Hcu",HeroUncommonCharacterSheet],
+                                ["Hcc",HeroCommonCharacterSheet]]) {
+        for (let i = 0; i < parseInt(document.getElementById(elemid).value); i++) {
+            [seed,priority] = permute(seed, sheet);
+            pickFromPriority(priority,1);
+        }
+    }
+}
+
 // TW promos
 seed = weakRand48(hashstr(document.getElementById("seed").value + "TWp"));
 if (document.getElementById("TWp").value > 0) {
@@ -3068,6 +3095,14 @@ window.addEventListener("load", (event) => {
 	    <tr>
 	      <td>Theo's mixed fixed packs?</td>
 	      <td><input type="checkbox" id="mixedfixed"></td>
+	    </tr>
+
+	    <tr>
+	      <td>Extra Hero characters:</td>
+	    </tr>
+	    <tr>
+	      <td align="right">F<input type="number" id="Hcf" min="0" style="width: 2.2em;" value=0>, R<input type="number" id="Hcr" min="0" style="width: 2.2em;" value=0>, U<input type="number" id="Hcu" min="0" style="width: 2.2em;" value=0>, C</td>
+	      <td><input type="number" id="Hcc" min="0" style="width: 2.2em;" value=0></td>
 	    </tr>
 
 	    <tr>
