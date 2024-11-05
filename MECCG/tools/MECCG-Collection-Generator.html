@@ -2075,6 +2075,20 @@ var CardCatalog = {
 };
 
 
+// cardnum took all the parentheses out of card names and replaced with hyphens
+// this allows us to convert them back for other platforms
+var CardConverter_standard = {
+'"Bert" - Bûrat (TW)':'“Bert” (Bûrat) (TW)',
+'Mûmak - Oliphant (TW)':'Mûmak (Oliphant) (TW)',
+'Olog-hai - Trolls (TW)':'Olog-hai (Trolls) (TW)',
+'"Tom" - Tûma (TW)':'“Tom” (Tûma) (TW)',
+'"Two-headed" Troll (LE)':'“Two-headed” Troll (LE)',
+'"William" - Wûluag (TW)':'“William” (Wûluag) (TW)',
+'Doeth - Durthak (WH)':'Doeth (Durthak) (WH)',
+'Euog - Ulzog (WH)':'Euog (Ulzog) (WH)',
+};
+
+
 function removeSites(cardlist, setflag) {
     let ret = [];
     for (let cardind = 0; cardind < cardlist.length; ++cardind) {
@@ -2275,6 +2289,7 @@ function Generate() {
     let ListofCards = {"C":[], "S":[], "R":[], "H":[], "G":[]};
     let Preview = [];
     let imgloading = document.getElementById("lazyload").checked ? "\"lazy\"" : "\"eager\"";
+    let cardnumname = document.getElementById("cardnumname").checked;
     let seed = hashstr(document.getElementById("seed").value);
     let nosites = document.getElementById("nosites").checked;
     let autoexchange = document.getElementById("autoexchange").checked;
@@ -2294,20 +2309,25 @@ function Generate() {
 
 
     function publishCard(card,Preview,ListofCards) {
-	let [htmlname,cardrarity,cardalign,cardtype,cardclass,cardmp] = CardCatalog[card];
-	// correct for reprints (Balrog)
+        let [htmlname,cardrarity,cardalign,cardtype,cardclass,cardmp] = CardCatalog[card];
+        // correct for reprints (Balrog)
         let htmlexp = htmlname.slice(0,4);
         if (htmlexp == "ice-") {
             htmlexp = htmlname.slice(4,8);
         }
         htmlexp = htmlexp.slice(2).toUpperCase();
-	if (card.slice(card.length-3,card.length-1) != htmlexp) {
+        if (card.slice(card.length-3,card.length-1) != htmlexp) {
             card = card.slice(0,card.length-3)+htmlexp+")";
         }
         // publish
-	htmlname = "ME"+htmlexp+"//"+htmlname;
-	Preview.push("<span style=\"display:inline-block; width:250px; height:350px;\"><a href=\""+imagebase+"/img/cards/"+htmlname+".jpg\" target=\"_blank\"><img src=\""+imagebase+"/img/cards/"+htmlname+".jpg\" width=\"250\" height=\"350\" title=\""+card+"\" alt=\""+card+"\" loading="+imgloading+"></a></span>");
-	ListofCards[cardtype].push("1 "+card);
+        htmlname = "ME"+htmlexp+"//"+htmlname;
+        Preview.push("<span style=\"display:inline-block; width:250px; height:350px;\"><a href=\""+imagebase+"/img/cards/"+htmlname+".jpg\" target=\"_blank\"><img src=\""+imagebase+"/img/cards/"+htmlname+".jpg\" width=\"250\" height=\"350\" title=\""+card+"\" alt=\""+card+"\" loading="+imgloading+"></a></span>");
+        if (cardnumname || ! (card in CardConverter_standard)) {
+            ListofCards[cardtype].push("1 "+card);
+        }
+        else {
+            ListofCards[cardtype].push("1 "+CardConverter_standard[card]);
+        }
         if (CardCatalog[card][3].includes("R") && CardCatalog[card][4].includes("A") && CardCatalog[card][5]) {
             hallies += CardCatalog[card][2].includes("H");
             mallies += CardCatalog[card][2].includes("M");
@@ -3157,8 +3177,9 @@ window.addEventListener("load", (event) => {
       <center>
 	<b>MECCG Collection Generator</b><br>
 	<div style="font-size:60%">by Theo, <a href="https://councilofelrond.org/forum/viewtopic.php?f=17&t=4343">inspired from CDavis7M</a></div>
-	<div style="font-size:60%">leveraging <input type="text" style="font-size:90%" id="imagebase" value="https://cardnum.net"></div>
+	<div style="font-size:60%">images from <input type="text" style="font-size:90%" id="imagebase" value="https://cardnum.net"></div>
 	<div style="font-size:60%">(only load images on screen <input type="checkbox" id="lazyload" checked>)</div>
+	<div style="font-size:80%">Alter names to copy into cardnum? <input type="checkbox" id="cardnumname"></div>
 	<div style="font-size:80%">View expansions<input type="checkbox" id="viewexpansions" onClick="changeViewChoice()" checked>, adjustments<input type="checkbox" id="viewadjustments" onClick="changeViewChoice()"></div>
 	<hr>
 	<div id="expansions">
