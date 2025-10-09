@@ -2654,7 +2654,8 @@ if (document.getElementById("Hdc").checked) {
     Preview.push("<h1 class=\"pack\"><b>Hero Dunk Cards</b></h1>");
     for (let cardname of ["The One Ring [H] (TW)",
                           "Cracks of Doom (TW)",
-                          "Wizard\'s Test (TW)"]) {
+                          "Wizard\'s Test (TW)",
+                          "Precious Gold Ring (TW)"]) {
         publishCard(cardname,Preview,ListofCards);
         accountForCardMax(cardname);
     }
@@ -2668,7 +2669,7 @@ if (document.getElementById("Hdc").checked) {
 
 
 //THE WIZARDS FIXED PACK
-seed = weakRand48(hashstr(baseseed + "TWF"));
+seed = baseseed ^ weakRand48(hashstr("TWF"));
 fixed = {};
 for (let i = 0; i < parseInt(document.getElementById("TWF").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Wizards Fixed Pack "+(i+1)+"</b></h1>");
@@ -2693,7 +2694,7 @@ for (let i = 0; i < parseInt(document.getElementById("TWF").value); i++) {
 }
 
 //THE WIZARDS STARTER DECKS
-seed = weakRand48(hashstr(baseseed + "TWS"));
+seed = baseseed ^ weakRand48(hashstr("TWS"));
 for (let i = 0; i < parseInt(document.getElementById("TWS").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Wizards Starter Pack "+(i+1)+"</b></h1>");
     if (mixedfixed) {
@@ -2736,7 +2737,7 @@ for (let i = 0; i < parseInt(document.getElementById("TWS").value); i++) {
 }
 
 //THE WIZARDS BOOSTER PACKS
-seed = weakRand48(hashstr(baseseed + "TWB"));
+seed = baseseed ^ weakRand48(hashstr("TWB"));
 // Chris said TW booster packs always had 6 of 11 booster only commons
 for (let i = 0; i < parseInt(document.getElementById("TWB").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Wizards Booster Pack "+(i+1)+"</b></h1>");
@@ -2767,7 +2768,7 @@ for (let i = 0; i < parseInt(document.getElementById("TWB").value); i++) {
 }
 
 //THE DRAGONS BOOSTER PACKS
-seed = weakRand48(hashstr(baseseed + "TDB"));
+seed = baseseed ^ weakRand48(hashstr("TDB"));
 for (let i = 0; i < parseInt(document.getElementById("TDB").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Dragons Booster Pack "+(i+1)+"</b></h1>");
     if (nosites) {
@@ -2789,7 +2790,7 @@ for (let i = 0; i < parseInt(document.getElementById("TDB").value); i++) {
 }
 
 //DARK MINONS BOOSTER PACKS
-seed = weakRand48(hashstr(baseseed + "DMB"));
+seed = baseseed ^ weakRand48(hashstr("DMB"));
 for (let i = 0; i < parseInt(document.getElementById("DMB").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>Dark Minions Booster Pack "+(i+1)+"</b></h1>");
     if (nosites) {
@@ -2812,7 +2813,7 @@ for (let i = 0; i < parseInt(document.getElementById("DMB").value); i++) {
 }
 
 // LIDLESS EYE FIXED PACKS
-seed = weakRand48(hashstr(baseseed + "LEF"));
+seed = baseseed ^ weakRand48(hashstr("LEF"));
 fixed = {};
 for (let i = 0; i < parseInt(document.getElementById("LEF").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Lidless Eye Fixed Pack "+(i+1)+"</b></h1>");
@@ -2837,7 +2838,7 @@ for (let i = 0; i < parseInt(document.getElementById("LEF").value); i++) {
 }
 
 //THE LIDLESS EYE STARTER DECKS
-seed = weakRand48(hashstr(baseseed + "LES"));
+seed = baseseed ^ weakRand48(hashstr("LES"));
 for (let i = 0; i < parseInt(document.getElementById("LES").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Lidless Eye Starter Pack "+(i+1)+"</b></h1>");
     if (mixedfixed) {
@@ -2878,7 +2879,7 @@ for (let i = 0; i < parseInt(document.getElementById("LES").value); i++) {
 }
 
 //THE LIDLESS EYE BOOSTER PACKS
-seed = weakRand48(hashstr(baseseed + "LEB"));
+seed = baseseed ^ weakRand48(hashstr("LEB"));
 for (let i = 0; i < parseInt(document.getElementById("LEB").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Lidless Eye Booster Pack "+(i+1)+"</b></h1>");
     if (nosites) {
@@ -2901,7 +2902,7 @@ for (let i = 0; i < parseInt(document.getElementById("LEB").value); i++) {
 }
 
 //AGAINST THE SHADOW BOOSTER PACKS
-seed = weakRand48(hashstr(baseseed + "ASB"));
+seed = baseseed ^ weakRand48(hashstr("ASB"));
 for (let i = 0; i < parseInt(document.getElementById("ASB").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>Against the Shadow Booster Pack "+(i+1)+"</b></h1>");
     if (nosites) {
@@ -2925,7 +2926,7 @@ for (let i = 0; i < parseInt(document.getElementById("ASB").value); i++) {
 }
 
 //THE WHITE HAND BOOSTER PACKS
-seed = weakRand48(hashstr(baseseed + "WHB"));
+seed = baseseed ^ weakRand48(hashstr("WHB"));
 for (let i = 0; i < parseInt(document.getElementById("WHB").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The White Hand Booster Pack "+(i+1)+"</b></h1>");
     if (nosites) {
@@ -2948,7 +2949,7 @@ for (let i = 0; i < parseInt(document.getElementById("WHB").value); i++) {
 }
 
 //THE BALROG COMBINED SET PACKS
-seed = weakRand48(hashstr(baseseed + "BAS"));
+seed = baseseed ^ weakRand48(hashstr("BAS"));
 let subseed;
 if (nosites) {
     pick = BAtrrh ? BASheetCombinedNoSites_hhr : BASheetCombinedNoSites;
@@ -2964,7 +2965,7 @@ for (let i = 0; i < parseInt(document.getElementById("BAS").value); i++) {
 }
 
 //THE BALROG ONLY COMBINED SET PACKS
-seed = weakRand48(hashstr(baseseed + "BOS"));
+seed = baseseed ^ weakRand48(hashstr("BOS"));
 for (let i = 0; i < parseInt(document.getElementById("BOS").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Balrog Only 2-Box Set Pack "+(i+1)+"</b></h1>");
     [seed,priority] = permute(seed, nosites ? BOSheetCombinedNoSites : BOSheetCombined);
@@ -2973,7 +2974,7 @@ for (let i = 0; i < parseInt(document.getElementById("BOS").value); i++) {
 
 
 // Hero characters
-seed = weakRand48(hashstr(baseseed + "Hc"));
+seed = baseseed ^ weakRand48(hashstr("Hc"));
 if (document.getElementById("Hcf").value > 0 || document.getElementById("Hcr").value > 0 || document.getElementById("Hcu").value > 0 || document.getElementById("Hcc").value > 0) {
     Preview.push("<h1 class=\"pack\"><b>Hero Characters</b></h1>");
     for (let [elemid,sheet] of [["Hcf",HeroFixedCharacterSheet],
@@ -2988,7 +2989,7 @@ if (document.getElementById("Hcf").value > 0 || document.getElementById("Hcr").v
 }
 
 // TW promos
-seed = weakRand48(hashstr(baseseed + "TWp"));
+seed = baseseed ^ weakRand48(hashstr("TWp"));
 if (document.getElementById("TWp").value > 0) {
     Preview.push("<h1 class=\"pack\"><b>TW Promos</b></h1>");
     for (let i = 0; i < parseInt(document.getElementById("TWp").value); i++) {
@@ -2998,7 +2999,7 @@ if (document.getElementById("TWp").value > 0) {
 }
 
 // TW allies
-seed = weakRand48(hashstr(baseseed + "TWa12"));
+seed = baseseed ^ weakRand48(hashstr("TWa12"));
 if (document.getElementById("TWa12").value > 0) {
     Preview.push("<h1 class=\"pack\"><b>TW Allies</b></h1>");
     for (let i = 0; i < parseInt(document.getElementById("TWa12").value); i++) {
@@ -3008,7 +3009,7 @@ if (document.getElementById("TWa12").value > 0) {
 }
 
 // TW characters
-seed = weakRand48(hashstr(baseseed + "TWc"));
+seed = baseseed ^ weakRand48(hashstr("TWc"));
 if (document.getElementById("TWcr").value > 0 || document.getElementById("TWcu").value > 0 || document.getElementById("TWcc").value > 0 || document.getElementById("TWc3").value > 0 || document.getElementById("TWc2").value > 0 || document.getElementById("TWc1").value > 0 || document.getElementById("TWc0").value > 0) {
     Preview.push("<h1 class=\"pack\"><b>TW Characters</b></h1>");
     for (let [elemid,sheet] of [["TWcr",TWRareCharacterSheet],
@@ -3026,7 +3027,7 @@ if (document.getElementById("TWcr").value > 0 || document.getElementById("TWcu")
 }
 
 // TW common MP resources
-seed = weakRand48(hashstr(baseseed + "TWcMP"));
+seed = baseseed ^ weakRand48(hashstr("TWcMP"));
 if (document.getElementById("TWcMPr").value > 0) {
     Preview.push("<h1 class=\"pack\"><b>TW common MP resources</b></h1>");
     for (let i = 0; i < parseInt(document.getElementById("TWcMPr").value); i++) {
@@ -3036,7 +3037,7 @@ if (document.getElementById("TWcMPr").value > 0) {
 }
 
 // Guaranteed allies
-seed = weakRand48(hashstr(baseseed + "gHa"));
+seed = baseseed ^ weakRand48(hashstr("gHa"));
 if (document.getElementById("gHa").value > 0 || document.getElementById("gHam").value > hallies) {
     Preview.push("<h1 class=\"pack\"><b>Generic Hero Allies</b></h1>");
     for (let i = 0; i < parseInt(document.getElementById("gHa").value); i++) {
@@ -3049,7 +3050,7 @@ if (document.getElementById("gHa").value > 0 || document.getElementById("gHam").
     }
 }
 
-seed = weakRand48(hashstr(baseseed + "gMa"));
+seed = baseseed ^ weakRand48(hashstr("gMa"));
 if (document.getElementById("gMa").value > 0 || document.getElementById("gMam").value > mallies) {
     Preview.push("<h1 class=\"pack\"><b>Generic Minion Allies</b></h1>");
     for (let i = 0; i < parseInt(document.getElementById("gMa").value); i++) {
@@ -3089,7 +3090,7 @@ function Generate() {
     for (let seed = baseseed + parseInt(document.getElementById("iterations").value) - 1; seed >= baseseed; seed = seed - 1) {
         ListofCards = {"C":[], "S":[], "R":[], "H":[], "G":[]};
         Preview = [];
-        GenerateOne(seed,Preview,ListofCards);
+        GenerateOne(weakRand48(seed),Preview,ListofCards);
 
         // start a new entry at position 0 to accumulate statistics
         for (let counter of [countHsite,countMsite,countFsite,countBsite,countHchar,countMchar]) {
