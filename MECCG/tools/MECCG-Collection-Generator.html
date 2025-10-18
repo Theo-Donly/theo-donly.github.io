@@ -47,6 +47,26 @@ function chooseN(seed, arr, N) {
     return [seed,arr.slice(0,N)];
 }
 
+function choose_weight(seed, weights) {
+    let sample;
+    let weights_cum = [];
+    let weights_tot = 0;
+    for (let i=0; i < weights.length; i+=1) {
+        weights_tot += weights[i];
+        weights_cum.push(weights_tot);
+    }
+    // sample
+    seed = weakRand48(seed);
+    sample = (seed / 0x1000000000000) * weights_tot;
+    seed = weakRand48(seed);
+    for (let i=0; i < weights.length; i+=1) {
+        if (sample < weights_cum[i]) {
+            return [seed,i];
+        }
+    }
+    return [seed,weights.length-1];
+}
+
 // max 2^28 size array for complete randomness
 function permute(seed, arr) {
     arr = arr.slice(0); // copy
@@ -190,13 +210,14 @@ var TWFixedPacks = [[
 "Thranduil's Halls [H] (TW)"
 ]];
 
+
 var TWMixedFixedPacks = [
     ["Alatar [H] (TW)","Gandalf [H] (TW)","Pallando [H] (TW)","Radagast [H] (TW)","Saruman [H] (TW)"],
-    [["Aragorn II (TW)","Rangers of the North (TW)"],["Thranduil (TW)","Wood-elves (TW)"],["Gimli (TW)","Iron Hill Dwarves (TW)"],["Théoden (TW)","Riders of Rohan (TW)"],["Faramir (TW)","Rangers of Ithilien (TW)"]],
-    [["Boromir II (TW)","Men of Anórien (TW)"],["Peath (TW)","Dunlendings (TW)"],["Adrazar (TW)","Tower Guard of Minas Tirith (TW)"],["Beorn (TW)","Beornings (TW)"],["Robin Smallburrow (TW)","Ents of Fangorn (TW)"]],
-    ["Elladan (TW)","Elrohir (TW)","Gildor Inglorion (TW)","Celeborn (TW)","Glorfindel II (TW)","Glorfindel II (TW)"],
-    ["Annalena (TW)","Kíli (TW)","Bard Bowman (TW)","Beregond (TW)","Erkenbrand (TW)"],
-    ["Annalena (TW)","Kíli (TW)","Bard Bowman (TW)","Boromir II (TW)","Robin Smallburrow (TW)"],
+    [["Aragorn II (TW)","Rangers of the North (TW)"],["Thranduil (TW)","Wood-elves (TW)"],["Beorn (TW)","Beornings (TW)"],["Gimli (TW)","Iron Hill Dwarves (TW)"],["Glorfindel II (TW)"]],
+    [["Faramir (TW)","Rangers of Ithilien (TW)"],["Peath (TW)","Dunlendings (TW)"],["Elladan (TW)"],["Elrohir (TW)"],["Gildor Inglorion (TW)"]],
+    [["Théoden (TW)","Riders of Rohan (TW)"],["Boromir II (TW)","Men of Anórien (TW)"],["Celeborn (TW)"],["Erkenbrand (TW)"],["Beregond (TW)"]],
+    [["Adrazar (TW)","Tower Guard of Minas Tirith (TW)"],["Robin Smallburrow (TW)","Ents of Fangorn (TW)"],["Annalena (TW)"],["Kíli (TW)"],["Bard Bowman (TW)"]],
+    ["Boromir II (TW)","Robin Smallburrow (TW)","Annalena (TW)","Kíli (TW)","Bard Bowman (TW)"],
     ["Gates of Morning (TW)","Doors of Night (TW)"]
     ];
 
@@ -2407,9 +2428,10 @@ function GenerateOne(baseseed,Preview,ListofCards) {
 
 
     function genSubFixedPack_TW() {
+        let choices = new Array(5);
         let pickind;
-        let param;
-        let blocked = {};
+        let factions = 0;
+        let pickBoro; // tracks whether Boromir was picked in Tier D for Tier F
         // Pick 2 Wizards
         [seed,pickind] = chooseN(seed, [...TWMixedFixedPacks[0].keys()], 2);
         if (pickind[0] > pickind[1]) {
@@ -2425,101 +2447,116 @@ function GenerateOne(baseseed,Preview,ListofCards) {
             fixed[pickind[0]*TWMixedFixedPacks[0].length+pickind[1]] = "";
         }
         pack = [TWMixedFixedPacks[0][pickind[0]],TWMixedFixedPacks[0][pickind[1]]];
-        // Pick a high MP char+faction
-        [seed,pickind] = weakRand48int(seed, TWMixedFixedPacks[1].length);
+        // Tier B: high combat + influence
+        choices.fill(1);
         if (uniquefixed) {
-            while ("B"+pickind in fixed) {
-                [seed,pickind] = weakRand48int(seed, TWMixedFixedPacks[1].length);
+            for (let i=0; i < choices.length; i+=1) {
+                if ("B"+i in fixed) {
+                    choices[i] = 0;
+                }
             }
-            fixed["B"+pickind] = "";
         }
+        [seed,pickind] = choose_weight(seed,choices);
         pick = TWMixedFixedPacks[1][pickind];
         if (uniquefixed) {
+            fixed["B"+pickind] = "";
             fixedchars[pick[0]] = "";
         }
         pack.push(...pick);
-        let pickindB = pickind;
-        // Pick a low MP char+faction
-        if (pickindB < 3) { // balance first and second char+faction pair
-            param = [3,0];
-        }
-        else {
-            param = [2,3];
-        }
-        [seed,pickind] = weakRand48int(seed, param[0]);
-        pickind += param[1];
+        factions += pickind < 4;
+        // Tier C: ranger
+        choices.fill(1);
         if (uniquefixed) {
-            while ("C"+pickind in fixed) {
-                [seed,pickind] = weakRand48int(seed, param[0]);
-                pickind += param[1];
+            for (let i=0; i < choices.length; i+=1) {
+                if ("C"+i in fixed) {
+                    choices[i] = 0;
+                }
             }
-            fixed["C"+pickind] = "";
         }
+        [seed,pickind] = choose_weight(seed,choices);
         pick = TWMixedFixedPacks[2][pickind];
         if (uniquefixed) {
+            fixed["C"+pickind] = "";
             fixedchars[pick[0]] = "";
         }
         pack.push(...pick);
-        if (pickind == 0) {
-            blocked[3] = ""; // block Boromir
+        factions += pickind < 2;
+        // Tier D: warrior
+        choices.fill(2);
+        switch (factions) {
+            case 2:
+                choices.fill(0,0,2);
+                break;
+            case 1:
+                choices.fill(3,0,2);
+                break;
+            case 0:
+                choices.fill(0,2,5);
+                break;
         }
-        else if (pickind == 4) {
-            blocked[4] = ""; // block Robin
-        }
-        // Pick an Elf with no associated faction
-        if (pickindB < 2) { // limit to 1 3-MP character
-            param = 4;
-        }
-        else if (uniquefixed && ("D"+4 in fixed || "D"+5 in fixed)) {
-            param = 4; // don't allow Glorfindel repeats
-        }
-        else {
-            param = 6;
-        }
-        [seed,pickind] = weakRand48int(seed, param);
         if (uniquefixed) {
-            while ("D"+pickind in fixed) {
-                [seed,pickind] = weakRand48int(seed, param);
+            for (let i=0; i < choices.length; i+=1) {
+                if ("D"+i in fixed) {
+                    choices[i] = 0;
+                }
             }
-            fixed["D"+pickind] = "";
         }
+        [seed,pickind] = choose_weight(seed,choices);
         pick = TWMixedFixedPacks[3][pickind];
         if (uniquefixed) {
-            fixedchars[pick] = "";
+            fixed["D"+pickind] = "";
+            fixedchars[pick[0]] = "";
         }
-        pack.push(pick);
-        // Pick a scout or mind-efficient character
-        [seed,pickind] = weakRand48int(seed, TWMixedFixedPacks[4].length);
-        if (uniquefixed) {
-            while ("E"+pickind in fixed) {
-                [seed,pickind] = weakRand48int(seed, TWMixedFixedPacks[4].length);
-            }
-            fixed["E"+pickind] = "";
-        }
-        pick = TWMixedFixedPacks[4][pickind];
-        if (uniquefixed) {
-            fixedchars[pick] = "";
-        }
-        pack.push(pick);
-        if (pickind < 3) {
-            blocked[pickind] = ""; // block scout
-        }
-        // Pick a two-chance character
-        [seed,pickind] = weakRand48int(seed, TWMixedFixedPacks[5].length);
-        if (uniquefixed) {
-            while ("F"+pickind in fixed || pickind in blocked) {
-                [seed,pickind] = weakRand48int(seed, TWMixedFixedPacks[5].length);
-            }
-            fixed["F"+pickind] = "";
+        pack.push(...pick);
+        factions += pickind < 2;
+        pickBoro = pickind == 1;
+        // Tier E: scout
+        choices.fill(1);
+        if (factions == 2) {
+            choices.fill(0,0,2);
         }
         else {
-            while (pickind in blocked) {
-                [seed,pickind] = weakRand48int(seed, TWMixedFixedPacks[5].length);
+            choices.fill(0,2,5);
+        }
+        if (uniquefixed) {
+            for (let i=0; i < choices.length; i+=1) {
+                if ("E"+i in fixed) {
+                    choices[i] = 0;
+                }
             }
         }
+        [seed,pickind] = choose_weight(seed,choices);
+        pick = TWMixedFixedPacks[4][pickind];
+        if (uniquefixed) {
+            fixed["E"+pickind] = "";
+            fixedchars[pick[0]] = "";
+        }
+        pack.push(...pick);
+        factions += pickind < 2;
+        // Tier F: two-chance character
+        choices.fill(3);
+        if (pickind == 0) {
+            // inflate Boromir if Adrazar was picked
+            choices[0] = 4;
+        }
+        else {
+            choices[pickind] = 0;
+        }
+        if (pickBoro) {
+            choices[0] = 0;
+        }
+        if (uniquefixed) {
+            for (let i=0; i < choices.length; i+=1) {
+                if ("F"+i in fixed) {
+                    choices[i] = 0;
+                }
+            }
+        }
+        [seed,pickind] = choose_weight(seed,choices);
         pick = TWMixedFixedPacks[5][pickind];
         if (uniquefixed) {
-            fixedchars[pick] = "";
+            fixed["F"+pickind] = "";
+            fixedchars[pick[0]] = "";
         }
         pack.push(pick);
         // fixed cards
