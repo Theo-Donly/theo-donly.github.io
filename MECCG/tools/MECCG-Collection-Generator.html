@@ -55,6 +55,9 @@ function choose_weight(seed, weights) {
         weights_tot += weights[i];
         weights_cum.push(weights_tot);
     }
+    if (weights_tot == 0) {
+        return [seed,0];
+    }
     // sample
     seed = weakRand48(seed);
     sample = (seed / 0x1000000000000) * weights_tot;
@@ -213,12 +216,16 @@ var TWFixedPacks = [[
 
 var TWMixedFixedPacks = [
     ["Alatar [H] (TW)","Gandalf [H] (TW)","Pallando [H] (TW)","Radagast [H] (TW)","Saruman [H] (TW)"],
-    [["Aragorn II (TW)","Rangers of the North (TW)"],["Thranduil (TW)","Wood-elves (TW)"],["Beorn (TW)","Beornings (TW)"],["Gimli (TW)","Iron Hill Dwarves (TW)"],["Glorfindel II (TW)"]],
-    [["Faramir (TW)","Rangers of Ithilien (TW)"],["Peath (TW)","Dunlendings (TW)"],["Elladan (TW)"],["Elrohir (TW)"],["Gildor Inglorion (TW)"]],
-    [["Théoden (TW)","Riders of Rohan (TW)"],["Boromir II (TW)","Men of Anórien (TW)"],["Celeborn (TW)"],["Erkenbrand (TW)"],["Beregond (TW)"]],
-    [["Adrazar (TW)","Tower Guard of Minas Tirith (TW)"],["Robin Smallburrow (TW)","Ents of Fangorn (TW)"],["Annalena (TW)"],["Kíli (TW)"],["Bard Bowman (TW)"]],
+    [["Aragorn II (TW)","Rangers of the North (TW)","Bree [H] (TW)"],["Thranduil (TW)","Wood-elves (TW)","Thranduil's Halls [H] (TW)"],["Beorn (TW)","Beornings (TW)","Beorn's House [H] (TW)"],["Gimli (TW)","Iron Hill Dwarves (TW)","Iron Hill Dwarf-hold [H] (TW)"],["Glorfindel II (TW)"]],
+    [["Faramir (TW)","Rangers of Ithilien (TW)","Henneth Annûn [H] (TW)"],["Peath (TW)","Dunlendings (TW)","Dunnish Clan-hold [H] (TW)"],["Elladan (TW)"],["Elrohir (TW)"],["Gildor Inglorion (TW)"]],
+    [["Théoden (TW)","Riders of Rohan (TW)","Edoras [H] (TW)"],["Boromir II (TW)","Men of Anórien (TW)","Minas Tirith [H] (TW)"],["Celeborn (TW)"],["Erkenbrand (TW)"],["Beregond (TW)"]],
+    [["Adrazar (TW)","Tower Guard of Minas Tirith (TW)","Minas Tirith [H] (TW)"],["Robin Smallburrow (TW)","Ents of Fangorn (TW)","Wellinghall [H] (TW)"],["Annalena (TW)"],["Kíli (TW)"],["Bard Bowman (TW)"]],
     ["Boromir II (TW)","Robin Smallburrow (TW)","Annalena (TW)","Kíli (TW)","Bard Bowman (TW)"],
-    ["Gates of Morning (TW)","Doors of Night (TW)"]
+    ["Gates of Morning (TW)","Doors of Night (TW)","Rivendell [H] (TW)","Rivendell [H] (TW)","Grey Havens [H] (TW)","Lórien [H] (TW)","Edhellond [H] (TW)","The Wind Throne [H] (TW)",],
+    ["Moria [H] (TW)","The Lonely Mountain [H] (TW)"], // 3,2
+    ["Barrow-downs [H] (TW)","Mount Gram [H] (TW)","Ruined Signal Tower [H] (TW)"], // 1,2,2
+    ["Bandit Lair [H] (TW)","Goblin-gate [H] (TW)"], // 3,2
+    ["Bag End [H] (TW)","Isengard [H] (TW)","Rhosgobel [H] (TW)","Weathertop [H] (TW)"], // 2,2w,2w,4
     ];
 
 
@@ -2430,8 +2437,12 @@ function GenerateOne(baseseed,Preview,ListofCards) {
     function genSubFixedPack_TW() {
         let choices = new Array(5);
         let pickind;
+        let randint;
         let factions = 0;
-        let pickBoro; // tracks whether Boromir was picked in Tier D for Tier F
+        let pickBoro; // tracks whether Boromir was picked in Tier D for Tier F (and E)
+        let pickRobin; // tracks whether Robin was picked in Tier E or F for Tier K (sites)
+        let pickRadagast; // tracks whether Radagast was picked in Tier A for Tier K (sites)
+        let pickSaruman; // tracks whether Saruman was picked in Tier A for Tier K (sites)
         // Pick 2 Wizards
         [seed,pickind] = chooseN(seed, [...TWMixedFixedPacks[0].keys()], 2);
         if (pickind[0] > pickind[1]) {
@@ -2447,6 +2458,8 @@ function GenerateOne(baseseed,Preview,ListofCards) {
             fixed[pickind[0]*TWMixedFixedPacks[0].length+pickind[1]] = "";
         }
         pack = [TWMixedFixedPacks[0][pickind[0]],TWMixedFixedPacks[0][pickind[1]]];
+        pickRadagast = pickind[0] == 3 || pickind[1] == 3;
+        pickSaruman = pickind[0] == 4 || pickind[1] == 4;
         // Tier B: high combat + influence
         choices.fill(1);
         if (uniquefixed) {
@@ -2511,12 +2524,20 @@ function GenerateOne(baseseed,Preview,ListofCards) {
         factions += pickind < 2;
         pickBoro = pickind == 1;
         // Tier E: scout
-        choices.fill(1);
+        choices.fill(7);
         if (factions == 2) {
             choices.fill(0,0,2);
         }
         else {
             choices.fill(0,2,5);
+            if (pickBoro) {
+                // avoid Boromir + Adrazar factions (both Minas Tirith), unless Robin already picked
+                choices[0] = 1e-30;
+            }
+            else {
+                // bump Adrazar to make up for not being selected with Boromir
+                choices[0] += 3; // 3/7 if added to 1
+            }
         }
         if (uniquefixed) {
             for (let i=0; i < choices.length; i+=1) {
@@ -2533,17 +2554,26 @@ function GenerateOne(baseseed,Preview,ListofCards) {
         }
         pack.push(...pick);
         factions += pickind < 2;
+        pickRobin = pickind == 1;
         // Tier F: two-chance character
-        choices.fill(3);
-        if (pickind == 0) {
-            // inflate Boromir if Adrazar was picked
-            choices[0] = 4;
+        choices.fill(3685); // 55 * 67
+        if (pickind >= 2) {
+            // fiddle with numbers when Annalena, Bard, or Kili was picked, due to faction biases
+            if (pickBoro) {
+                // bump Robin
+                choices[1] += 201; // would be 3/55 if adding to 1
+            }
+            else {
+                // bump Boroomir
+                choices[0] += 440; // would be 8/67 if adding to 1
+            }
         }
-        else {
-            choices[pickind] = 0;
-        }
+        // zero out previously picked characters
         if (pickBoro) {
             choices[0] = 0;
+        }
+        if (pickind) {
+            choices[pickind] = 0;
         }
         if (uniquefixed) {
             for (let i=0; i < choices.length; i+=1) {
@@ -2559,11 +2589,167 @@ function GenerateOne(baseseed,Preview,ListofCards) {
             fixedchars[pick[0]] = "";
         }
         pack.push(pick);
+        pickRobin = pickRobin || pickind == 1;
         // fixed cards
         pick = TWMixedFixedPacks[6];
         pack.push(...pick);
+        // Tier H: sites, greater
+        choices.fill(0);
+        choices[0] = 3;
+        choices[1] = 2;
+        if (uniquefixed) {
+            for (let i=0; i < 2; i+=1) {
+                if ("H"+i in fixed) {
+                    choices[i] = 0;
+                }
+            }
+        }
+        [seed,pickind] = choose_weight(seed,choices);
+        pick = TWMixedFixedPacks[7][pickind];
+        if (uniquefixed) {
+            fixed["H"+pickind] = "";
+        }
+        pack.push(pick);
+        // Tier I: sites, major
+        choices.fill(0);
+        choices[0] = 1;
+        choices[1] = 2;
+        choices[2] = 2;
+        if (uniquefixed) {
+            for (let i=0; i < 3; i+=1) {
+                if ("I"+i in fixed) {
+                    choices[i] = 0;
+                }
+            }
+        }
+        [seed,pickind] = choose_weight(seed,choices);
+        pick = TWMixedFixedPacks[8][pickind];
+        if (uniquefixed) {
+            fixed["I"+pickind] = "";
+        }
+        pack.push(pick);
+        // Tier J: sites, ring
+        choices.fill(0);
+        choices[0] = 3;
+        choices[1] = 2;
+        if (uniquefixed) {
+            for (let i=0; i < 2; i+=1) {
+                if ("J"+i in fixed) {
+                    choices[i] = 0;
+                }
+            }
+        }
+        [seed,pickind] = choose_weight(seed,choices);
+        pick = TWMixedFixedPacks[9][pickind];
+        if (uniquefixed) {
+            fixed["J"+pickind] = "";
+        }
+        pack.push(pick);
+        // Tier K: sites, homesites
+        pickind = [];
+        choices.fill(1);
+        choices[4] = 0;
+        if (uniquefixed) {
+            for (let i=0; i < 4; i+=1) {
+                if ("K"+i in fixed) {
+                    choices[i] = 0;
+                }
+            }
+        }
+        if (choices[0] + choices[1] + choices[2] + choices[3] == 2) {
+            for (let i=0; i < 4; i+=1) {
+                if (choices[i]) {
+                    pickind.push(i);
+                }
+            }
+        }
+        else if (pickRobin) {
+            if (pickSaruman) {
+                if (pickRadagast) {
+                    [seed,randint] = weakRand48int(seed,3);
+                    if (randint != 0) {
+                        pickind.push(0);
+                    }
+                    if (randint != 1) {
+                        pickind.push(1);
+                    }
+                    if (randint != 2) {
+                        pickind.push(2);
+                    }
+                }
+                else {
+                    [seed,randint] = weakRand48int(seed,108);
+                    if (randint < 49) {
+                        if (randint < 28) {
+                            pickind.push(0);
+                        }
+                        else {
+                            pickind.push(1);
+                        }
+                        pickind.push(3);
+                    }
+                    else {
+                        pickind.push(0);
+                        pickind.push(1);
+                    }
+                }
+            }
+            else if (pickRadagast) {
+                [seed,randint] = weakRand48int(seed,108);
+                if (randint < 49) {
+                    if (randint < 28) {
+                        pickind.push(0);
+                    }
+                    else {
+                        pickind.push(2);
+                    }
+                    pickind.push(3);
+                }
+                else {
+                    pickind.push(0);
+                    pickind.push(2);
+                }
+            }
+            else {
+                pickind.push(0);
+                pickind.push(3);
+            }
+        }
+        else if (pickSaruman) {
+            if (pickRadagast) {
+                [seed,randint] = weakRand48int(seed,27);
+                if (randint < 14) {
+                    pickind.push(1+(randint>=7));
+                    pickind.push(3);
+                }
+                else {
+                    pickind.push(1);
+                    pickind.push(2);
+                }
+            }
+            else {
+                pickind.push(1);
+                pickind.push(3);
+            }
+        }
+        else if (pickRadagast) {
+            pickind.push(2);
+            pickind.push(3);
+        }
+        else {
+            [seed,randint] = weakRand48int(seed,3);
+            pickind.push(randint);
+            pickind.push(3);
+        }
+        pack.push(TWMixedFixedPacks[10][pickind[0]]);
+        pack.push(TWMixedFixedPacks[10][pickind[1]]);
+        if (uniquefixed) {
+            fixed["K"+pickind[0]] = "";
+            fixed["K"+pickind[1]] = "";
+        }
         return pack;
     }
+
 
     function genSubFixedPack_LE() {
         let pickind;
@@ -3530,7 +3716,7 @@ window.addEventListener("load", (event) => {
 	      <td><input type="checkbox" id="uniquefixed"></td>
 	    </tr>
 	    <tr>
-	      <td>Theo's mixed fixed packs?</td>
+	      <td>Theo's mixed fixed packs v3?</td>
 	      <td><input type="checkbox" id="mixedfixed"></td>
 	    </tr>
 
