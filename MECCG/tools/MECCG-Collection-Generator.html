@@ -2223,6 +2223,8 @@ var LEStarterCommonSheet = buildSheet("LE","CS");
 var LEStarterCommonSheetNoSites = removeSites(LEStarterCommonSheet,"");
 var LEBoosterCommonSheet = buildSheet("LE","CB");
 var LEBoosterCommonSheetNoSites = removeSites(LEBoosterCommonSheet,"");
+var LEBoosterOnlyCommonSheet = buildSheet("LE","CB");
+filterSheet(LEBoosterOnlyCommonSheet,[],[],[1,1],["CS","F"])
 
 var ASRareSheet = buildSheet("AS","R");
 var ASRareSheetNoSites = removeSites(ASRareSheet,"");
@@ -2300,7 +2302,7 @@ var TW0MPCharacterSheet = [...TWCharacterSheet];
 filterSheet(TW0MPCharacterSheet,[5],[]);
 
 var TWCommonMPResourceSheet = [...TWCombinedCommonSheetsNoSites];
-filterSheet(TWCommonMPResourceSheet,[3],["R"],[5],[]);
+filterSheet(TWCommonMPResourceSheet,[3],["R"],[5,5],[,1]);
 
 
 // guaranteed ally: common, non-specific, worth MP
@@ -2898,6 +2900,7 @@ for (let i = 0; i < parseInt(document.getElementById("TWF").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Wizards Fixed Pack "+(i+1)+"</b></h1>");
     if (mixedfixed) {
         pack = genSubFixedPack_TW();
+        pack = removeSites(pack,"");
     }
     else {
         let packind = 0;
@@ -2922,6 +2925,7 @@ for (let i = 0; i < parseInt(document.getElementById("TWS").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Wizards Starter Pack "+(i+1)+"</b></h1>");
     if (mixedfixed) {
         pack = genSubFixedPack_TW();
+        pack = removeSites(pack,"");
     }
     else {
 	let packind = 0;
@@ -3042,6 +3046,7 @@ for (let i = 0; i < parseInt(document.getElementById("LEF").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Lidless Eye Fixed Pack "+(i+1)+"</b></h1>");
     if (mixedfixed) {
         pack = genSubFixedPack_LE();
+        pack = removeSites(pack,"");
     }
     else {
 	let packind = 0;
@@ -3066,6 +3071,7 @@ for (let i = 0; i < parseInt(document.getElementById("LES").value); i++) {
     Preview.push("<h1 class=\"pack\"><b>The Lidless Eye Starter Pack "+(i+1)+"</b></h1>");
     if (mixedfixed) {
         pack = genSubFixedPack_LE();
+        pack = removeSites(pack,"");
     }
     else {
 	let packind = 0;
@@ -3258,6 +3264,27 @@ if (document.getElementById("TWcMPr").value > 0) {
         pickFromPriority(priority,1);
     }
 }
+
+// TW booster-only commons
+seed = baseseed ^ weakRand48(hashstr("TWboc"));
+if (document.getElementById("TWboc").value > 0) {
+    Preview.push("<h1 class=\"pack\"><b>TW Booster-only Commons</b></h1>");
+    for (let i = 0; i < parseInt(document.getElementById("TWboc").value); i++) {
+        [seed,priority] = permute(seed, nosites ? TWBoosterOnlyCommonSheetNoSites : TWBoosterOnlyCommonSheet);
+        pickFromPriority(priority,1);
+    }
+}
+
+// LE booster-only commons
+seed = baseseed ^ weakRand48(hashstr("LEboc"));
+if (document.getElementById("LEboc").value > 0) {
+    Preview.push("<h1 class=\"pack\"><b>LE Booster-only Commons</b></h1>");
+    for (let i = 0; i < parseInt(document.getElementById("LEboc").value); i++) {
+        [seed,priority] = permute(seed, LEBoosterOnlyCommonSheet);
+        pickFromPriority(priority,1);
+    }
+}
+
 
 // Guaranteed allies
 seed = baseseed ^ weakRand48(hashstr("gHa"));
@@ -3745,8 +3772,16 @@ window.addEventListener("load", (event) => {
 	      <td><input type="number" id="TWc0" min="0" style="width: 2.2em;" value=0></td>
 	    </tr>
 	    <tr>
-	      <td>TW common MP resources:</td>
+	      <td>TW common 2MP resources:</td>
 	      <td><input type="number" id="TWcMPr" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td>TW booster-only commons:</td>
+	      <td><input type="number" id="TWboc" min="0" value=0></td>
+	    </tr>
+	    <tr>
+	      <td>LE booster-only commons:</td>
+	      <td><input type="number" id="LEboc" min="0" value=0></td>
 	    </tr>
 	    <tr>
 	      <td>Generic Hero allies:</td>
