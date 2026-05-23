@@ -1774,33 +1774,69 @@
       'The Wind Throne [M] (BA)':['mele_thewindthrone','b1','M','S','R',],
       };
 
+// cardnum took all the parentheses out of card names and replaced with hyphens
+// this allows us to convert them back for other platforms
+var CardConverter_standard = {
+'"Bert" - Bûrat (TW)':'“Bert” (Bûrat) (TW)',
+'Mûmak - Oliphant (TW)':'Mûmak (Oliphant) (TW)',
+'Olog-hai - Trolls (TW)':'Olog-hai (Trolls) (TW)',
+'"Tom" - Tûma (TW)':'“Tom” (Tûma) (TW)',
+'"Two-headed" Troll (LE)':'“Two-headed” Troll (LE)',
+'"William" - Wûluag (TW)':'“William” (Wûluag) (TW)',
+'Doeth - Durthak (WH)':'Doeth (Durthak) (WH)',
+'Euog - Ulzog (WH)':'Euog (Ulzog) (WH)',
+};
+
+for (let cardname in CardConverter_standard) {
+    CardCatalog[CardConverter_standard[cardname]] = CardCatalog[cardname];
+    delete CardCatalog[cardname];
+}
+
+// cardnum took all the parentheses out of card names and replaced with hyphens
+// this allows us to convert the regular names into cardnum names
+var CardConverter_cardnum = {
+'“Bert” (Bûrat) (TW)':'"Bert" - Bûrat (TW)',
+'Mûmak (Oliphant) (TW)':'Mûmak - Oliphant (TW)',
+'Olog-hai (Trolls) (TW)':'Olog-hai - Trolls (TW)',
+'“Tom” (Tûma) (TW)':'"Tom" - Tûma (TW)',
+'“Two-headed” Troll (LE)':'"Two-headed" Troll (LE)',
+'“William” (Wûluag) (TW)':'"William" - Wûluag (TW)',
+'Doeth (Durthak) (WH)':'Doeth - Durthak (WH)',
+'Euog (Ulzog) (WH)':'Euog - Ulzog (WH)',
+};
+
 var cardaligns = {"H":"hero","N":"neutral","M":"minion","D":"dual","F":"fallen","B":"balrog"};
 var cardtypes = {"C":"character","R":"resource","H":"hazard","S":"site","G":"region"};
-function AccountForCardEntry(accountant,cardentry,reports) {
-    let firstspace = cardentry.indexOf(" ");
-    // headers and empty lines will not have spaces
-    if (firstspace == -1) {
-        return;
-    }
-    // actual cards will have a number before the first space
-    let count = parseInt(cardentry.slice(0,firstspace));
-    let cardname = cardentry.slice(firstspace+1,cardentry.length);
-    if (!(cardname in CardCatalog)) {
-        reports.push("Unrecognized card (check decorations?): "+cardname+"<br>");
-        return;
-    }
-    let [htmlname,cardrarity,cardalign,cardtype,cardclass,cardmp] = CardCatalog[cardname];
-    let key = cardname.slice(0,cardname.length-4)+"{"+cardaligns[cardalign]+", "+cardtypes[cardtype]+"}";
-    if (!(key in accountant)) {
-        accountant[key] = 0;
-    }
-    accountant[key] += count;
-}
 
 
 
 // CHECK!!!!!
 function Check() {
+    function AccountForCardEntry(accountant,cardentry,reports) {
+        let firstspace = cardentry.indexOf(" ");
+        // headers and empty lines will not have spaces
+        if (firstspace == -1) {
+            return;
+        }
+        // actual cards will have a number before the first space
+        let count = parseInt(cardentry.slice(0,firstspace));
+        let cardname = cardentry.slice(firstspace+1,cardentry.length);
+        if (cardnumname && cardname in CardConverter_standard) {
+            cardname = CardConverter_standard[cardname];
+        }
+        if (!(cardname in CardCatalog)) {
+            reports.push("Unrecognized card (check decorations?): "+cardname+"<br>");
+            return;
+        }
+        let [htmlname,cardrarity,cardalign,cardtype,cardclass,cardmp] = CardCatalog[cardname];
+        let key = cardname.slice(0,cardname.length-4)+"{"+cardaligns[cardalign]+", "+cardtypes[cardtype]+"}";
+        if (!(key in accountant)) {
+            accountant[key] = 0;
+        }
+        accountant[key] += count;
+    }
+    let cardnumname = document.getElementById("cardnumname").checked;
+
     let reports = [];
     // load collection
     let CollectionCards = {};
@@ -1828,6 +1864,9 @@ function Check() {
             count_collection = CollectionCards[card];
         }
         if (count_deck > count_collection) {
+            if (cardnumname && card in CardConverter_cardnum) {
+                card = CardConverter_cardnum[card];
+            }
             reports.push(count_deck + " " + card + " in deck exceeds " + count_collection + " in collection</br>");
         }
     }
@@ -1873,6 +1912,8 @@ function Check() {
 	<div style="font-size:60%">by Theo</div>
 	<br>
 	(Note: currently only checks against collection; additional rule checks are planned for the future.)
+	<br>
+        <div style="font-size:80%">Input uses cardnum name variants? <input type="checkbox" id="cardnumname"></div>
 	<table hidden>
 	  <tr>
 	    <td><label for="checktwodeck">Two-deck</label><input type="checkbox" id="checktwodeck"></td>
